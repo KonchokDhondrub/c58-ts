@@ -1,0 +1,12 @@
+.space-mission-container {
+  text-align: left;
+}
+
+.space-mission-container ul {
+  margin-top: 0;
+  padding-left: 30px;
+}
+
+.space-mission-container p {
+  margin-bottom: 2px;
+}
