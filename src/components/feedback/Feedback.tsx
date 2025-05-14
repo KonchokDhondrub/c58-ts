@@ -17,14 +17,14 @@ function Feedback() {
       <div className="feedback-form-container">
         <div className="button-box">
           <div className="button-count-box">
-            <MyButton func={() => setCountLike((p) => p + 1)} text="👍" className="button" />
+            <MyButton onClick={() => setCountLike((p) => p + 1)} text="👍" className="button" />
             <span>{countLike}</span>
           </div>
           <div className="button-count-box">
             <MyButton onClick={() => setCountDislike((p) => p + 1)} text="👎" className="button" />
             <span>{countDislike}</span>
           </div>
-          <MyButton func={resetAll} text="❌" className="button button-red" />
+          <MyButton onClick={resetAll} text="❌" className="button button-red" />
         </div>
       </div>
     </>

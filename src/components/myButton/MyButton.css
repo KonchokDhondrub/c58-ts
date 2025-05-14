@@ -1,4 +1,4 @@
-.my-button-def {
+.my-btn-def {
   margin: 3px;
   background-color: rgba(207, 86, 34, 0.8);
   color: wheat;
@@ -7,6 +7,6 @@
   margin: 0;
 }
 
-.my-button-def:hover {
+.my-btn-def:hover {
   background-color: rgb(207, 86, 34);
 }

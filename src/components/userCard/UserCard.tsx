@@ -1,6 +1,12 @@
 import "./UserCard.css";
 
-function UserCard({ name = "name not defined", age = 404, hobby = "hobby not defined" }) {
+interface IUserCard {
+  name: string;
+  age: number;
+  hobby?: string;
+}
+
+function UserCard({ name = "name not defined", age = 404, hobby }: IUserCard) {
   //   console.log(props);
 
   return (

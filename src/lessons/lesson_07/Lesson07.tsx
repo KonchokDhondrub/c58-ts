@@ -1,5 +1,7 @@
 //! типизация объектов
 
+import MyButton from "../../components/myButton/MyButton";
+
 //! типизация через interface
 // Конструктор объекта
 interface ISuperHero {
@@ -73,15 +75,16 @@ function makeArray<T>(first: T, second: T): T[] {
   return [first, second];
 }
 
-console.log(makeArray<number>(100, 1000));
-console.log(makeArray<boolean>(true, false));
-console.log(makeArray(hero1, hero2));
+// console.log(makeArray<number>(100, 1000));
+// console.log(makeArray<boolean>(true, false));
+// console.log(makeArray(hero1, hero2));
 
 export default function Lesson07() {
   return (
     <div>
       <h1>Lesson 07: TypeScript pt2 💁</h1>
       <p>Самое интересное на этом уроке происходит в теле функции и в командной строке</p>
+      <MyButton />
     </div>
   );
 }
