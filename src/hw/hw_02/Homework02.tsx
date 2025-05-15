@@ -1,4 +1,4 @@
-import ProfileCard from "../../components/ProfileCard/ProfileCard";
+import ProfileCard from "../../components/profileCard/ProfileCard";
 import personList from "./profiles.json";
 import "./Homework02.css";
 

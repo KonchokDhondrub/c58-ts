@@ -1,4 +1,4 @@
-import SpaceMission from "../../components/SpaceMission/SpaceMission";
+import SpaceMission from "../../components/spaceMission/SpaceMission";
 
 export default function Homework06() {
   return (

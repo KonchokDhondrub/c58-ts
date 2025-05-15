@@ -1,6 +1,6 @@
 import { useEffect, useState, type JSX } from "react";
 import MyButton from "../../components/myButton/MyButton";
-import "./Homework08.css";
+import MyLoader from "../../components/myLoader/MyLoader";
 
 export default function Lesson08(): JSX.Element {
   useEffect(() => {
@@ -17,8 +17,6 @@ export default function Lesson08(): JSX.Element {
       .then((res) => res.json())
       .then((data) => {
         setFox(data.image);
-      })
-      .finally(() => {
         setLoading(false);
       });
   };
@@ -37,13 +35,7 @@ export default function Lesson08(): JSX.Element {
         <MyButton onClick={fetchFox} text="change picture" />
       </div>
 
-      {loading ? (
-        <div className="loader"></div>
-      ) : (
-        <div className="grid-container">
-          <img style={{ marginTop: "10px" }} width="250" src={fox} alt="random fox" />
-        </div>
-      )}
+      {loading ? <MyLoader /> : <img style={{ marginTop: "10px" }} width="250" src={fox} alt="random fox" />}
     </div>
   );
 }
