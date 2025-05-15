@@ -4,9 +4,15 @@
   color: wheat;
   font-size: 22px;
   padding: 7px;
-  margin: 0;
+  border: none;
+  outline: none;
 }
 
 .my-btn-def:hover {
   background-color: rgb(207, 86, 34);
+}
+
+.my-btn-def:focus {
+  outline: none;
+  box-shadow: none;
 }

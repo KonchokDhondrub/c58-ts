@@ -5,7 +5,7 @@ interface IMyButtonProps {
   text?: string;
   type?: "button" | "submit" | "reset";
   className?: string;
-  onClick?: () => void /* () => void */;
+  onClick?: any /* () => void */;
 }
 
 function MyButton({ type = "button", text = "click me!", onClick = () => console.log("Click!"), className = "my-btn-def" }: IMyButtonProps): JSX.Element {

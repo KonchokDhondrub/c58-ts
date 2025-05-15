@@ -2,6 +2,7 @@
   border: 1px rgb(158, 148, 148) solid;
   padding: 10px;
   border-radius: 10px;
+  max-width: 280px;
 }
 
 .feedback-form-container h2 {

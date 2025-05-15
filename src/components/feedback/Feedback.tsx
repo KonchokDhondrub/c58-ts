@@ -1,4 +1,4 @@
-import { useState, type JSX } from "react";
+import { useEffect, useState, type JSX } from "react";
 import MyButton from "../myButton/MyButton";
 import "./Feedback.css";
 
@@ -10,6 +10,10 @@ function Feedback(): JSX.Element {
     setCountLike(0);
     setCountDislike(0);
   }
+
+  useEffect(() => {
+    console.log("hello Feedback");
+  }, [countLike, countDislike]);
 
   return (
     <>
