@@ -31,53 +31,9 @@ export default function Lesson08(): JSX.Element {
         Homework 08: <u>useEffect</u> hook 🪝
       </h2>
 
-      <div style={{ display: "flex", justifyContent: "center", gap: "10px" }}>
-        <MyButton onClick={fetchFox} text="change picture" />
-      </div>
-
-      {loading ? <MyLoader /> : <img style={{ marginTop: "10px" }} width="250" src={fox} alt="random fox" />}
+      <MyButton onClick={fetchFox} text="change picture" />
+      <p></p>
+      {loading ? <MyLoader /> : <img width="300" src={fox} alt="random fox" />}
     </div>
   );
 }
-
-// // Old
-//   const [toggle, setToggle] = useState(true);
-//   const [fox, setFox] = useState<string>("#");
-
-//   const handleToggle = () => {
-//     setToggle((prev) => !prev);
-//   };
-
-//   useEffect(() => {
-//     const loader = document.querySelector(".loader");
-//     const gridContainer = document.querySelector(".grid-container");
-
-//     loader?.classList.remove("hide");
-//     gridContainer?.classList.add("hide");
-
-//     fetch("https://randomfox.ca/floof/")
-//       .then((res) => res.json())
-//       .then((data) => {
-//         loader?.classList.add("hide");
-//         gridContainer?.classList.remove("hide");
-//         setToggle(true);
-//         setFox(data.image);
-//         console.log("fletch!");
-
-//       });
-//   }, [toggle]);
-
-//   return (
-//     <div>
-//       <h2>
-//         Homework 08: <u>useEffect</u> hook 🪝
-//       </h2>
-
-//       <div style={{ display: "flex", justifyContent: "center", gap: "10px" }}>
-//         <MyButton onClick={handleToggle} text="change picture" />
-//       </div>
-//       <div className="grid-container">{toggle && <img style={{ marginTop: "10px" }} width="300" src={fox} alt="random fox" />}</div>
-//       <div className="loader"></div>
-//     </div>
-//   );
-// }
