@@ -1,14 +1,15 @@
+import type { JSX } from "react";
 import MyButton from "../../components/myButton/MyButton";
-import UserCard from "../../components/userCard/UserCard.tsx";
+import UserCard from "../../components/userCard/UserCard";
 
-function Lesson03() {
-  const friends = [
+function Lesson03(): JSX.Element {
+  const friends: { name: string; age: number | string; hobby: string }[] = [
     { name: "Peter", age: 40, hobby: "coding" },
     { name: "Rosa", age: 35, hobby: "hiking" },
-    { name: "Anton", age: 20, hobby: "painting" },
+    { name: "Anton", age: "20", hobby: "painting" },
   ];
 
-  const go = () => console.log("go-go!");
+  const go = (): void => console.log("go-go!");
 
   return (
     <div>

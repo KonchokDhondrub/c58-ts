@@ -1,7 +1,8 @@
+import type { JSX } from "react";
 import { fellowship } from "./fellowship";
 import "./lesson05.css";
 
-function Lesson05() {
+function Lesson05(): JSX.Element {
   // console.log(fellowship);
 
   return (

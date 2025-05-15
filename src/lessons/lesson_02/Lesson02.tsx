@@ -2,40 +2,36 @@ import MyButton from "../../components/myButton/MyButton";
 import "./Lesson02.css";
 
 function Lesson02() {
-  interface ILesson02 {
-    library?: string;
-    developer?: string;
-    logo?: string;
+  interface ILibrary {
+    library: string;
+    developer: string;
+    logo: string;
   }
 
   // данные из переменной
   const text: string = "это строка из переменной text..";
 
   // объект 1
-  const react = {
+  const react: ILibrary = {
     library: "React",
     developer: "Meta",
     logo: "https://www.inexture.com/wp-content/uploads/2023/08/Top-10-React-Libraries.png",
   };
 
   // объект 2
-  const angular = {
+  const angular: ILibrary = {
     library: "Angular",
     developer: "Google",
     logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Angular_Logo_SVG.svg/2560px-Angular_Logo_SVG.svg.png",
   };
 
   // функция обработки объектов
-  function showDeveloper(obj: ILesson02 | string): string {
+  function showDeveloper(obj: ILibrary | string): string {
     if (typeof obj === "string") {
       return `Received a string: "${obj}"`;
     }
 
-    if (obj.developer && obj.library) {
-      return `Developer of ${obj.library} is ${obj.developer}`;
-    }
-
-    return "Not valid data 😵";
+    return `Developer of ${obj.library} is ${obj.developer}`;
   }
 
   // переменная от значения которой зависит увидим мы данные или нет

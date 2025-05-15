@@ -1,5 +1,6 @@
 //! типизация объектов
 
+import type { JSX } from "react";
 import MyButton from "../../components/myButton/MyButton";
 
 //! типизация через interface
@@ -79,7 +80,7 @@ function makeArray<T>(first: T, second: T): T[] {
 // console.log(makeArray<boolean>(true, false));
 // console.log(makeArray(hero1, hero2));
 
-export default function Lesson07() {
+export default function Lesson07(): JSX.Element {
   return (
     <div>
       <h1>Lesson 07: TypeScript pt2 💁</h1>

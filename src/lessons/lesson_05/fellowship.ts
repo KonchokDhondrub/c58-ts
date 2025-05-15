@@ -1,4 +1,13 @@
-export const fellowship = [
+interface IFellowship {
+  id: number;
+  name: string;
+  age: number;
+  isDark: boolean;
+  weapons: string[];
+  image: string;
+}
+
+export const fellowship: IFellowship[] = [
   {
     id: 1,
     name: "Gendalf",

@@ -1,4 +1,4 @@
-import ProfileCard from "../../components/ProfileCard/ProfileCard.js";
+import ProfileCard from "../../components/ProfileCard/ProfileCard";
 import personList from "./profiles.json";
 import "./Homework02.css";
 
@@ -9,7 +9,8 @@ function Homework02() {
       <div className="container">
         {personList.map((person) => (
           <div className="box" key={person.id}>
-            <ProfileCard {...person} />
+            {/* <ProfileCard {...person} />  */}
+            <ProfileCard avatar={person.avatar} fname={person.fname} lname={person.lname} occupation={person.occupation} hobby={person.hobby} />
           </div>
         ))}
       </div>

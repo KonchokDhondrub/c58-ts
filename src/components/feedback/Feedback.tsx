@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useState, type JSX } from "react";
 import MyButton from "../myButton/MyButton";
 import "./Feedback.css";
 
-function Feedback() {
-  let [countLike, setCountLike] = useState(0);
-  let [countDislike, setCountDislike] = useState(0);
+function Feedback(): JSX.Element {
+  let [countLike, setCountLike] = useState<number>(0);
+  let [countDislike, setCountDislike] = useState<number>(0);
 
-  function resetAll() {
+  function resetAll(): void {
     setCountLike(0);
     setCountDislike(0);
   }

@@ -1,14 +1,13 @@
+import type { JSX } from "react";
 import "./UserCard.css";
 
 interface IUserCard {
   name: string;
-  age: number;
+  age: number | string;
   hobby?: string;
 }
 
-function UserCard({ name = "name not defined", age = 404, hobby }: IUserCard) {
-  //   console.log(props);
-
+function UserCard({ name = "name not defined", age = 404, hobby }: IUserCard): JSX.Element {
   return (
     <div className="user-card">
       <h4>Name: {name}</h4>
