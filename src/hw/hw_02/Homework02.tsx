@@ -1,14 +1,14 @@
 import ProfileCard from "../../components/profileCard/ProfileCard";
 import personList from "./profiles.json";
-import "./Homework02.css";
+import st from "./Homework02.module.css";
 
 function Homework02() {
   return (
     <>
       <h1>My Best Friends!</h1>
-      <div className="container">
+      <div className={st.container}>
         {personList.map((person) => (
-          <div className="box" key={person.id}>
+          <div className={st.box} key={person.id}>
             {/* <ProfileCard {...person} />  */}
             <ProfileCard avatar={person.avatar} fname={person.fname} lname={person.lname} occupation={person.occupation} hobby={person.hobby} />
           </div>

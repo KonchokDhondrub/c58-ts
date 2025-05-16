@@ -1,3 +1,13 @@
+body {
+  place-items: baseline;
+  background-color: rgb(234, 234, 234);
+}
+
+:root p {
+  text-align: left;
+  margin: 2px;
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;

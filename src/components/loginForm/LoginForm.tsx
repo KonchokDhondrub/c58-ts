@@ -1,7 +1,7 @@
 import { useState } from "react";
 import MyButton from "../myButton/MyButton";
 import MyInput from "../myInput/MyInput.tsx";
-import "./LoginForm.css";
+import st from "./LoginForm.module.css";
 
 // const submitLog = () => console.log("Submited!");
 
@@ -17,7 +17,7 @@ function LoginForm({}) {
   };
 
   return (
-    <div className="login-form-container">
+    <div className={st.loginFormContainer}>
       <h2>LogIn</h2>
       <MyInput name="login" type="text" label="Login: " placeholder="can write your login here" onChange={(e: any) => setLogin(e.target.value)} />
 

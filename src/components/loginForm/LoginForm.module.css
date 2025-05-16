@@ -1,4 +1,4 @@
-.login-form-container {
+.loginFormContainer {
   border: 1px black solid;
   padding: 10px;
   border-radius: 10px;
@@ -8,15 +8,12 @@
   text-align: left;
 }
 
-.login-form-container h2 {
+.loginFormContainer h2 {
   text-align: center;
   margin: 5px auto;
 }
 
-.login-form-container label {
-}
-
-.login-form-container input {
+.loginFormContainer input {
   padding-left: 5px;
   font-size: 18px;
   border-radius: 5px;
@@ -25,7 +22,7 @@
   margin-bottom: 5px;
 }
 
-.login-form-container button {
+.loginFormContainer button {
   margin-top: 7px;
   border-radius: 5px;
 }

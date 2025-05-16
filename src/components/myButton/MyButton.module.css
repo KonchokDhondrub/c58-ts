@@ -1,0 +1,58 @@
+.myButton {
+  padding: 10px;
+  margin: 0;
+  outline: none;
+  border: none;
+}
+.myButton:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.primary {
+  background-color: rgb(249, 117, 61);
+  color: rgb(255, 255, 255);
+}
+.primary:hover {
+  background-color: rgb(255, 77, 0);
+}
+
+.danger {
+  background-color: #f6392f;
+  color: rgb(24, 24, 24);
+}
+.danger:hover {
+  background-color: #e00f04;
+}
+
+.success {
+  background-color: #61cd6e;
+  color: rgb(24, 24, 24);
+}
+.success:hover {
+  background-color: #22bb33;
+}
+
+.disabled {
+  background-color: darkgray;
+  color: rgb(62, 62, 62);
+  cursor: not-allowed;
+}
+.disabled:hover {
+  background-color: #7b7b7b;
+}
+
+.sm {
+  font-size: 14px;
+}
+
+.md {
+  font-size: 22px;
+}
+
+.lg {
+  font-size: 30px;
+}
+
+.span {
+}

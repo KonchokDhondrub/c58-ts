@@ -1,6 +1,6 @@
 import type { JSX } from "react";
-import "./MyLodader.css";
+import st from "./MyLodader.module.css";
 
 export default function MyLoader(): JSX.Element {
-  return <div className="loader"></div>;
+  return <div className={st.loader}></div>;
 }

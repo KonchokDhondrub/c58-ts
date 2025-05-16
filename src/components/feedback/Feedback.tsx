@@ -1,6 +1,6 @@
 import { useEffect, useState, type JSX } from "react";
 import MyButton from "../myButton/MyButton";
-import "./Feedback.css";
+import st from "./Feedback.module.css";
 
 function Feedback(): JSX.Element {
   let [countLike, setCountLike] = useState<number>(0);
@@ -12,23 +12,23 @@ function Feedback(): JSX.Element {
   }
 
   useEffect(() => {
-    console.log("hello Feedback");
+    // console.log("hello Feedback");
   }, [countLike, countDislike]);
 
   return (
     <>
       <h2>Feedback</h2>
-      <div className="feedback-form-container">
-        <div className="button-box">
-          <div className="button-count-box">
-            <MyButton onClick={() => setCountLike((p) => p + 1)} text="👍" className="button" />
+      <div className={st.feedbackFormContainer}>
+        <div className={st.btnBox}>
+          <div className={st.btnCountBox}>
+            <MyButton onClick={() => setCountLike((p) => p + 1)} text="👍" className={st.button} />
             <span>{countLike}</span>
           </div>
-          <div className="button-count-box">
-            <MyButton onClick={() => setCountDislike((p) => p + 1)} text="👎" className="button" />
+          <div className={st.btnCountBox}>
+            <MyButton onClick={() => setCountDislike((p) => p + 1)} text="👎" className={st.button} />
             <span>{countDislike}</span>
           </div>
-          <MyButton onClick={resetAll} text="❌" className="button button-red" />
+          <MyButton onClick={resetAll} text="❌" className={`${st.button} ${st.buttonRed}`} />
         </div>
       </div>
     </>

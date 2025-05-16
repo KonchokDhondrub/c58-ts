@@ -1,0 +1,30 @@
+.heading {
+  color: orange;
+}
+
+.info {
+  font-style: italic;
+}
+
+.buttonBox {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
+.ul {
+  list-style: none;
+}
+
+.ul > li::before {
+  content: "⚡️ ";
+}
+
+.experimental > button {
+  background-color: rgb(246, 63, 160);
+}
+.experimental > button:hover {
+  background-color: deeppink;
+}

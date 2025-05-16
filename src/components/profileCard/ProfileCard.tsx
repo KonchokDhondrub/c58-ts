@@ -1,4 +1,3 @@
-import "./ProfileCard.css";
 interface IProfileCardProps {
   avatar: string;
   fname: string;
