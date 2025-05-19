@@ -10,12 +10,14 @@ interface IMyButtonProps {
   isDisabled?: boolean;
   variant?: "primary" | "danger" | "success";
   size?: "sm" | "md" | "lg";
+  id?: string;
 }
 
-function MyButton({ type = "button", text = "click me!", className, isDisabled = false, variant = "primary", size = "md", onClick = () => console.log(`onClick: text: ${text}, type: ${type}, variant: ${variant}, size: ${size} disabled: ${isDisabled}`) }: IMyButtonProps): JSX.Element {
+function MyButton({ id, type = "button", text = "click me!", className, isDisabled = false, variant = "primary", size = "md", onClick = () => console.log(`onClick: text: ${text}, type: ${type}, variant: ${variant}, size: ${size} disabled: ${isDisabled}`) }: IMyButtonProps): JSX.Element {
   return (
     <>
       <button
+        id={id}
         onClick={onClick}
         type={type}
         className={

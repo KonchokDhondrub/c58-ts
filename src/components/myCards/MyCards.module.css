@@ -1,0 +1,30 @@
+.cardBox {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: end;
+
+  align-items: center;
+
+  width: 500px;
+
+  border: 2px rgb(129, 195, 15) solid;
+  border-radius: 8px;
+}
+
+.cardBox .textBox {
+  text-align: center;
+  width: 100%;
+  margin: 10px 20px;
+}
+
+.cardBox .imgBox {
+  height: 200px;
+  width: 200px;
+}
+
+.imgBox img {
+  height: 100%;
+  width: 200px;
+  object-fit: cover;
+}

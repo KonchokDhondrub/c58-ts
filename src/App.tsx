@@ -5,7 +5,7 @@ import "./App.css";
 // import Def from "./hw/hw_08/Homework08";
 
 // import Def from "./lessons/lesson_06/Lesson06";
-import Def from "./lessons/lesson_09/Lesson09";
+import Def from "./lessons/lesson_10/Lesson10";
 
 function App() {
   return (
