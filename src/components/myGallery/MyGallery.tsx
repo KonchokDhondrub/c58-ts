@@ -1,8 +1,7 @@
-import { useState, type JSX } from "react";
+import {  type JSX } from "react";
 import MyButton from "../myButton/MyButton";
 import st from "./MyGallery.module.css";
 import MyCards from "../myCards/MyCards";
-import MyLoader from "../myLoader/MyLoader";
 
 interface GalleryItem {
   fact: string;
