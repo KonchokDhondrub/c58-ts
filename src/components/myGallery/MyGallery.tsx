@@ -1,7 +1,8 @@
-import type { JSX } from "react";
+import { useState, type JSX } from "react";
 import MyButton from "../myButton/MyButton";
 import st from "./MyGallery.module.css";
 import MyCards from "../myCards/MyCards";
+import MyLoader from "../myLoader/MyLoader";
 
 interface GalleryItem {
   fact: string;
@@ -19,8 +20,9 @@ export default function MyGallery({ gallery, onAdd, onClear }: IMyGalleryProps):
     <>
       <div className={st.btnBox}>
         <MyButton onClick={onAdd} text="GET MORE INFO" />
-        {gallery.length > 0 && <MyButton onClick={onClear} text="DELETE ALL DATA" />}
+        {gallery.length > 0 && <MyButton onClick={onClear} variant="danger" text="DELETE ALL DATA" />}
       </div>
+
       <div className={`${st.container} ${st.scrollContainer}`}>
         {gallery.map((el, index) => (
           <div key={index}>

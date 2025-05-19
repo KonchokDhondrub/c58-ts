@@ -8,8 +8,6 @@ export default function Lesson10(): JSX.Element {
     document.title = "Homework 10: Random Facts about cats";
   }, []);
 
-  const [data, setData] = useState<string>("#");
-  const [url, setUrl] = useState<string>("#");
   const [loading, setLoading] = useState(true);
 
   interface GalleryItem {
@@ -31,13 +29,12 @@ export default function Lesson10(): JSX.Element {
   };
 
   const addGallery = async () => {
-    setLoading(true);
     const fact = await fetchFact();
     const image = await fetchImage();
     setGallery((prev) => [...prev, { fact, image }]);
     setTimeout(() => {
       setLoading(false);
-    }, 500);
+    }, 400);
 
     console.log(gallery);
   };
@@ -47,13 +44,14 @@ export default function Lesson10(): JSX.Element {
   };
 
   useEffect(() => {
+    setLoading(true);
     addGallery();
   }, []);
 
   return (
     <div className={styles.container}>
       {loading ? (
-        <MyLoader />
+        <MyLoader position="center" />
       ) : (
         <>
           <MyGallery gallery={gallery} onAdd={addGallery} onClear={clearGallery} />
