@@ -1,14 +1,21 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: left;
   background-color: rgba(255, 255, 0, 0.06);
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.15);
-}
+} */
 
-body {
-  place-items: stretch;
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+
+  align-self: center;
+
+  margin-top: 10px;
+  max-width: 700px;
 }
 
 .top {
@@ -16,9 +23,6 @@ body {
   justify-items: end;
   margin-bottom: 20px;
   justify-content: space-between;
-}
-.container {
-  max-width: 700px;
 }
 
 .top > div {
@@ -45,12 +49,10 @@ body {
   margin: 0 0 0 10px;
 }
 
-.links {
+.box {
   display: flex;
-  justify-content: space-between;
-}
-.links > li {
-  display: inline;
+  flex-direction: column;
+  text-align: left;
 }
 
 .box h3 {

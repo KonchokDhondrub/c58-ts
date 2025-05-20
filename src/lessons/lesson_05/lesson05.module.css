@@ -1,12 +1,13 @@
-.hero-container {
+.heroContainer {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
 
   gap: 10px;
 }
 
-.hero-box {
+.heroBox {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -21,7 +22,7 @@
   width: 400px;
 }
 
-.hero-box-text p,
+.heroBoxText p,
 li {
   margin: 0;
   text-wrap: wrap;
@@ -29,26 +30,26 @@ li {
   font-size: 20px;
 }
 
-.hero-box-text span {
+.heroBoxText span {
   font-weight: normal;
   font-size: 16px;
 }
 
-.hero-img {
+.heroImg {
   width: 200px;
   height: 200px;
 }
 
-.hero-img img {
+.heroImg img {
   height: 100%;
   width: 100%;
   border-radius: 50%;
   object-fit: cover;
 }
 
-.hero-box-dark {
+.heroBoxDark {
   border: 2px red solid;
 }
-.hero-box-light {
+.heroBoxLight {
   border: 2px blue solid;
 }

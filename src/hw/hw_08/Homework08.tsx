@@ -2,7 +2,7 @@ import { useEffect, useState, type JSX } from "react";
 import MyButton from "../../components/myButton/MyButton";
 import MyLoader from "../../components/myLoader/MyLoader";
 
-export default function Lesson08(): JSX.Element {
+export default function Homework08(): JSX.Element {
   useEffect(() => {
     document.title = "Homework 08: useEffect hook 🪝";
   }, []);

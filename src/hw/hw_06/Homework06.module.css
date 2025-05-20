@@ -1,0 +1,19 @@
+.spaceMissionContainer {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+
+.box {
+  text-align: left;
+}
+
+.spaceMissionContainer ul {
+  margin-top: 0;
+  padding-left: 30px;
+}
+
+.spaceMissionContainer p {
+  margin-bottom: 2px;
+}

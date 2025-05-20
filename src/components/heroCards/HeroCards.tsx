@@ -1,9 +1,10 @@
 import type { IHero } from "../../hw/hw_05/types";
+import st from "../../hw/hw_05/Homework05.module.css";
 
 function HeroCards({ id, isDark, name, age, weapons, image }: IHero) {
   return (
-    <div className={`hero-box hero-box-${isDark ? "dark" : "light"}`}>
-      <div className="hero-box-text">
+    <div className={`${st.heroBox} ${isDark ? st.heroBoxDark : st.heroBoxLight}`}>
+      <div className={st.heroBoxText}>
         <p>
           {name}, {age}, {isDark ? "👺" : "👼"}
         </p>
@@ -13,7 +14,7 @@ function HeroCards({ id, isDark, name, age, weapons, image }: IHero) {
           ))}
         </ul>
       </div>
-      <div className="hero-img">
+      <div className={st.heroImg}>
         <img src={image} alt={name} />
       </div>
     </div>

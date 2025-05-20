@@ -3,9 +3,9 @@ import HeroCards from "../../components/heroCards/HeroCards.tsx";
 import { fellowship } from "./fellowship.ts";
 import MyButton from "../../components/myButton/MyButton";
 import type { IHero } from "./types.ts";
-import "./lesson05.css";
+import st from "./Homework05.module.css";
 
-function Lesson05() {
+function Homework05() {
   const [heroes, setHeroes] = useState<IHero[]>(fellowship);
   console.log(heroes);
 
@@ -21,9 +21,9 @@ function Lesson05() {
   return (
     <div>
       <h1>Lesson 05: React map() 🧝🏻‍♂️</h1>
-      <div className="hero-container">
+      <div className={st.heroContainer}>
         {heroes.map((hero) => (
-          <div key={hero.id} className="key">
+          <div key={hero.id} className={st.key}>
             <HeroCards {...hero} />
             <MyButton onClick={() => handleDelete(hero.id)} text="delete" />
           </div>
@@ -33,4 +33,4 @@ function Lesson05() {
   );
 }
 
-export default Lesson05;
+export default Homework05;

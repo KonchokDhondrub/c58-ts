@@ -1,5 +1,6 @@
 import { useEffect, type JSX } from "react";
 import { NavLink } from "react-router-dom";
+import style from "./HomePage.module.css";
 
 interface IAllData {
   path: string;
@@ -21,21 +22,20 @@ export default function HomePage({ homework, lessons }: IHomePageProps): JSX.Ele
     <>
       <h1>Home Page 🏠</h1>
 
-      <div>Homework</div>
-      <div>
-        <div>
-          {homework.map((el) => (
-            <NavLink key={el.path} to={el.path}>
-              {el.title}
-            </NavLink>
-          ))}
-        </div>
-
-        <div>Lessons</div>
-        <div>
+      <div className={style.container}>
+        <div className={style.box}>
+          <h2>Lessons</h2>
           {lessons.map((el) => (
             <NavLink key={el.path} to={el.path}>
               {el.title || el.path}
+            </NavLink>
+          ))}
+        </div>
+        <div className={style.box}>
+          <h2>Homework</h2>
+          {homework.map((el) => (
+            <NavLink key={el.path} to={el.path}>
+              {el.title}
             </NavLink>
           ))}
         </div>

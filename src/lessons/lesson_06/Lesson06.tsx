@@ -1,5 +1,4 @@
 import type { JSX } from "react";
-import "./Lesson06.css";
 
 export default function Lesson06(): JSX.Element {
   // ! typescript

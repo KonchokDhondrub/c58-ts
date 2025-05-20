@@ -1,5 +1,4 @@
 import MyButton from "../../components/myButton/MyButton";
-import "./Lesson02.css";
 
 function Lesson02() {
   interface ILibrary {

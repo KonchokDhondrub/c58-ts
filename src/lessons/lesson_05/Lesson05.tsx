@@ -1,6 +1,6 @@
 import type { JSX } from "react";
 import { fellowship } from "./fellowship";
-import "./lesson05.css";
+import st from "./lesson05.module.css";
 
 function Lesson05(): JSX.Element {
   // console.log(fellowship);
@@ -8,10 +8,14 @@ function Lesson05(): JSX.Element {
   return (
     <div>
       <h1>Lesson 05: React map() 🧝🏻‍♂️</h1>
-      <div className="hero-container">
+      <div className={st.heroContainer}>
         {fellowship.map((hero) => (
-          <div key={hero.id} className={`hero-box hero-box-${hero.isDark ? "dark" : "light"}`}>
-            <div className="hero-box-text">
+          <div
+            key={hero.id}
+            className={`${st.heroBox} 
+          ${hero.isDark ? st.heroBoxDark : st.heroBoxLight}`}
+          >
+            <div className={st.heroBoxText}>
               <p>
                 {hero.name}, {hero.age}, {hero.isDark ? "👺" : "👼"}
               </p>
@@ -21,7 +25,7 @@ function Lesson05(): JSX.Element {
                 ))}
               </p>
             </div>
-            <div className="hero-img">
+            <div className={st.heroImg}>
               <img src={hero.image} alt="" />
             </div>
           </div>

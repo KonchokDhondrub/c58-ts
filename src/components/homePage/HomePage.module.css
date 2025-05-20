@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+
+  width: 20%;
+
+  font-size: 20px;
+  text-wrap: nowrap;
+}
+.box h2 {
+  margin-bottom: 5px;
+}
