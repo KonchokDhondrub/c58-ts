@@ -15,6 +15,12 @@
   padding-top: 0;
 }
 
+h1,
+h2,
+h3 {
+  color: rgb(228, 219, 210);
+}
+
 a {
   font-weight: 500;
   color: #646cff;

@@ -9,7 +9,8 @@
   width: 100%;
   height: 80px;
 
-  background-color: darkorange;
+  background-color: rgb(255, 115, 0);
+  border-bottom: 1px rgb(247, 143, 58) solid;
 }
 
 .linkContainer {
