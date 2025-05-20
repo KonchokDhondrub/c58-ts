@@ -1,9 +1,6 @@
-
-
 .main {
   flex: 1;
+
+  border-top: 1px darkolivegreen solid;
+  border-bottom: 1px darkolivegreen solid;
 }
-
-
-
-

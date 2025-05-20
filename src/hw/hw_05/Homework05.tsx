@@ -20,7 +20,7 @@ function Homework05() {
 
   return (
     <div>
-      <h1>Lesson 05: React map() 🧝🏻‍♂️</h1>
+      <h1>Homework 05: React map() 🧝🏻‍♂️</h1>
       <div className={st.heroContainer}>
         {heroes.map((hero) => (
           <div key={hero.id} className={st.key}>

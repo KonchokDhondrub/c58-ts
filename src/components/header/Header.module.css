@@ -9,9 +9,7 @@
   width: 100%;
   height: 80px;
 
-  background-color: orange;
-
-  border-bottom: 1px rgb(141, 141, 141) solid;
+  background-color: darkorange;
 }
 
 .linkContainer {
@@ -22,8 +20,8 @@
 
   margin-left: 50px;
 
+  width: 800px;
   min-width: 400px;
-  width: 40%;
 }
 .linkContainer a {
   padding: 5px 9px;

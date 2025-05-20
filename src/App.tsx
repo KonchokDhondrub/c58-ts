@@ -25,27 +25,27 @@ import Lesson10 from "./lessons/lesson_10/Lesson10";
 
 // Homewok array
 const navHW = [
-  { path: "homework-01", title: "Homework 01", element: <Homework01 /> },
-  { path: "homework-02", title: "Homework 02", element: <Homework02 /> },
-  { path: "homework-03", title: "Homework 03", element: <Homework03 /> },
-  { path: "homework-04", title: "Homework 04", element: <Homework04 /> },
-  { path: "homework-05", title: "Homework 05", element: <Homework05 /> },
-  { path: "homework-06", title: "Homework 06", element: <Homework06 /> },
-  { path: "homework-08", title: "Homework 08", element: <Homework08 /> },
+  { path: "homework-01", title: "Homework 1: Business card", element: <Homework01 /> },
+  { path: "homework-02", title: "Homework 2: JSX, My Best Friends!", element: <Homework02 /> },
+  { path: "homework-03", title: "Homework 3: props & LogIn form", element: <Homework03 /> },
+  { path: "homework-04", title: "Homework 4: useState & Feedback form", element: <Homework04 /> },
+  { path: "homework-05", title: "Homework 5: React map() 🧝🏻‍♂️", element: <Homework05 /> },
+  { path: "homework-06", title: "Homework 6: TypeScript & Apollo 11 mission", element: <Homework06 /> },
+  { path: "homework-08", title: "Homework 8: useEffect & Foxes!", element: <Homework08 /> },
 ];
 
 // Lessons array
 const navLessons = [
-  { path: "lesson-01", title: "Lesson 01", element: <Lesson01 /> },
-  { path: "lesson-02", title: "Lesson 02", element: <Lesson02 /> },
-  { path: "lesson-03", title: "Lesson 03", element: <Lesson03 /> },
-  { path: "lesson-04", title: "Lesson 04", element: <Lesson04 /> },
-  { path: "lesson-05", title: "Lesson 05", element: <Lesson05 /> },
-  { path: "lesson-06", title: "Lesson 06", element: <Lesson06 /> },
-  { path: "lesson-07", title: "Lesson 07", element: <Lesson07 /> },
-  { path: "lesson-08", title: "Lesson 08", element: <Lesson08 /> },
-  { path: "lesson-09", title: "Lesson 09", element: <Lesson09 /> },
-  { path: "lesson-10", title: "Lesson 10", element: <Lesson10 /> },
+  { path: "lesson-01", title: "Lesson 1: Hello, React!", element: <Lesson01 /> },
+  { path: "lesson-02", title: "Lesson 2: JSX components", element: <Lesson02 /> },
+  { path: "lesson-03", title: "Lesson 3: React props 👨‍👩‍👧‍👦", element: <Lesson03 /> },
+  { path: "lesson-04", title: "Lesson 4: useState hook 🪝", element: <Lesson04 /> },
+  { path: "lesson-05", title: "Lesson 5: React map() 🧝🏻‍♂️", element: <Lesson05 /> },
+  { path: "lesson-06", title: "Lesson 6: TypeScript pt1 💁‍♂️", element: <Lesson06 /> },
+  { path: "lesson-07", title: "Lesson 7: TypeScript pt2 💁", element: <Lesson07 /> },
+  { path: "lesson-08", title: "Lesson 8: useEffect hook 🪝", element: <Lesson08 /> },
+  { path: "lesson-09", title: "Lesson 9: CSS modules", element: <Lesson09 /> },
+  { path: "lesson-10", title: "Lesson 10: Fletch Cats! 🐈", element: <Lesson10 /> },
 ];
 
 // Main nav
