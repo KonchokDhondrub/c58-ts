@@ -3,7 +3,7 @@ import styles from "./Header.module.css";
 
 const navLinks = [
   { to: "/", title: "Home" },
-  // { to: "components", title: "Components" }
+  { to: "https://konchokdhondrub.github.io/frontend/", title: "Old Lessons Page" },
 ];
 
 export default function Header() {
