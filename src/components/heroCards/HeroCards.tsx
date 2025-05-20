@@ -1,4 +1,4 @@
-import type { IHero } from "../types";
+import type { IHero } from "../../hw/hw_05/types";
 
 function HeroCards({ id, isDark, name, age, weapons, image }: IHero) {
   return (

@@ -8,7 +8,8 @@ export default function Lesson10(): JSX.Element {
     document.title = "Homework 10: Random Facts about cats";
   }, []);
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
+  let loadingCounter = 0;
 
   interface GalleryItem {
     fact: string;
@@ -27,6 +28,7 @@ export default function Lesson10(): JSX.Element {
     const data = await res.json();
     return data.fact;
   };
+  console.log(loadingCounter);
 
   const addGallery = async () => {
     const fact = await fetchFact();
@@ -34,6 +36,7 @@ export default function Lesson10(): JSX.Element {
     setGallery((prev) => [...prev, { fact, image }]);
     setTimeout(() => {
       setLoading(false);
+      loadingCounter++;
     }, 400);
 
     console.log(gallery);
@@ -44,7 +47,10 @@ export default function Lesson10(): JSX.Element {
   };
 
   useEffect(() => {
-    setLoading(true);
+    {
+      loadingCounter < 1 ? setLoading(true) : "";
+    }
+
     addGallery();
   }, []);
 

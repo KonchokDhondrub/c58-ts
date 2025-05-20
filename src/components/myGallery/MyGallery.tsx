@@ -1,4 +1,4 @@
-import {  type JSX } from "react";
+import { type JSX } from "react";
 import MyButton from "../myButton/MyButton";
 import st from "./MyGallery.module.css";
 import MyCards from "../myCards/MyCards";
@@ -23,11 +23,14 @@ export default function MyGallery({ gallery, onAdd, onClear }: IMyGalleryProps):
       </div>
 
       <div className={`${st.container} ${st.scrollContainer}`}>
-        {gallery.map((el, index) => (
-          <div key={index}>
-            <MyCards text={el.fact} image={el.image} alt={index} />
-          </div>
-        ))}
+        {gallery
+          .slice()
+          .reverse()
+          .map((el, index) => (
+            <div key={index}>
+              <MyCards text={el.fact} image={el.image} id={index} />
+            </div>
+          ))}
       </div>
     </>
   );

@@ -4,16 +4,19 @@ import st from "./MyCards.module.css";
 interface IMyCards {
   text: string;
   image: string;
-  alt?: number;
+  alt?: string | number;
+  id?: number;
 }
 
-export default function MyCards({ text, image, alt }: IMyCards): JSX.Element {
+export default function MyCards({ text, image, id, alt }: IMyCards): JSX.Element {
   return (
-    <div className={st.cardBox}>
-      <div className={st.textBox}><span>{text}</span></div>
-      
+    <div className={st.cardBox} id={String(id)}>
+      <div className={st.textBox}>
+        <span>{text}</span>
+      </div>
+
       <div className={st.imgBox}>
-        <img src={image} alt={`cat-${alt}`} />
+        <img src={image} alt={String(id)} />
       </div>
     </div>
   );

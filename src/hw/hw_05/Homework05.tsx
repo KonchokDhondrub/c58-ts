@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import HeroCards from "./HeroCards/HeroCards.tsx";
+import HeroCards from "../../components/heroCards/HeroCards.tsx";
 import { fellowship } from "./fellowship.ts";
-import "./lesson05.css";
 import MyButton from "../../components/myButton/MyButton";
 import type { IHero } from "./types.ts";
+import "./lesson05.css";
 
 function Lesson05() {
   const [heroes, setHeroes] = useState<IHero[]>(fellowship);
