@@ -45,7 +45,7 @@
   margin: 5px 10px;
   padding: 0 20px;
 
-  /* transition: 2s ease; */
+  transition: 2s ease;
 }
 
 .containerGrid section:hover {
