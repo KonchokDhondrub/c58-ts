@@ -14,6 +14,12 @@
   color: rgb(228, 219, 210);
 }
 
+.lesson-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

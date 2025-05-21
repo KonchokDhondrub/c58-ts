@@ -1,0 +1,23 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
+
+.form > input {
+  padding: 6px;
+  margin-bottom: 5px;
+
+  border-radius: 8px;
+  font-size: 16px;
+  text-align: left;
+}
+
+.ul {
+  margin-top: 0;
+  list-style: none;
+}
+
+.ul > li::before {
+  content: "⚡️ ";
+}

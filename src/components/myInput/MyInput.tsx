@@ -8,7 +8,7 @@ interface IMyInputProps {
   onChange?: any /* () => void */;
 }
 
-function MyInput({ name = "not defined", type = "text", placeholder = "write here", label = "no data", onChange = () => console.log("onChange") }: IMyInputProps): JSX.Element {
+function MyInput({ name = "not defined", type = "text", placeholder = "write here", label, onChange = () => console.log("onChange") }: IMyInputProps): JSX.Element {
   return (
     <>
       <label htmlFor={name}>{label}</label>

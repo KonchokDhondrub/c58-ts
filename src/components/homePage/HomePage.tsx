@@ -15,7 +15,7 @@ interface IHomePageProps {
 
 export default function HomePage({ homework, lessons }: IHomePageProps): JSX.Element {
   useEffect(() => {
-    document.title = "Home Page";
+    document.title = "Home Page with lessons";
   });
 
   return (
@@ -26,17 +26,21 @@ export default function HomePage({ homework, lessons }: IHomePageProps): JSX.Ele
         <div className={style.box}>
           <h2>Lessons</h2>
           {lessons.map((el) => (
-            <NavLink key={el.path} to={el.path}>
-              {el.title || el.path}
-            </NavLink>
+            <div key={el.path} className={style.containerGrid}>
+              <NavLink to={el.path}>
+                <section>{el.title || el.path}</section>
+              </NavLink>
+            </div>
           ))}
         </div>
         <div className={style.box}>
           <h2>Homework</h2>
           {homework.map((el) => (
-            <NavLink key={el.path} to={el.path}>
-              {el.title}
-            </NavLink>
+            <div key={el.path} className={style.containerGrid}>
+              <NavLink to={el.path}>
+                <section>{el.title || el.path}</section>
+              </NavLink>
+            </div>
           ))}
         </div>
       </div>
