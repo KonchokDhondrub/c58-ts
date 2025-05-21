@@ -11,6 +11,8 @@
 
   background-color: rgb(255, 115, 0);
   border-bottom: 1px rgb(247, 143, 58) solid;
+
+  z-index: 10000;
 }
 
 .linkContainer {

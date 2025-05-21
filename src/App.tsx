@@ -1,4 +1,5 @@
-import { HashRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import "./App.css";
 
 import Layout from "./components/layout/Layout";
@@ -50,11 +51,19 @@ const navLessons = [
 
 // Main nav
 const navLinks = [
-  { path: "/", element: <HomePage homework={navHW} lessons={navLessons} /> },
-  { path: "*", element: <h1>404 Page not found</h1> },
+  { path: "/", title: "Home Page: Lessons & Homework", element: <HomePage homework={navHW} lessons={navLessons} /> },
+  { path: "*", title: "404 Page not found", element: <h1>404 Page not found</h1> },
 ];
 
 function App() {
+  // const location = useLocation();
+
+  // useEffect(() => {
+  //   const allRoutes = [...navLinks, ...navHW, ...navLessons];
+  //   const current = allRoutes.find((el) => el.path === location.pathname);
+  //   document.title = current?.title || "React App";
+  // }, [location]);
+
   return (
     <HashRouter>
       <Routes>
