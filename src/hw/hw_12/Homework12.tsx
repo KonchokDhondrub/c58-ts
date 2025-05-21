@@ -35,6 +35,8 @@ export default function Homework12() {
       alert("Достигнут лимит запросов!");
       return;
     }
+    if (!name) return;
+
     requestCount++;
 
     try {

@@ -11,7 +11,7 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.linkContainer}>
         {navLinks.map((el) => (
-          <NavLink key={el.to} to={el.to} className={({ isActive }) => (isActive ? styles.isActive : "")}>
+          <NavLink key={el.to} to={el.to} className={({ isActive }) => (isActive ? styles.isActive : styles.isNotActive)}>
             {el.title}
           </NavLink>
         ))}

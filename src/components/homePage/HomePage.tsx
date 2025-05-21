@@ -28,7 +28,7 @@ export default function HomePage({ homework, lessons }: IHomePageProps): JSX.Ele
           {lessons.map((el) => (
             <div key={el.path} className={style.containerGrid}>
               <NavLink to={el.path}>
-                <section>{el.title || el.path}</section>
+                <section>{el.title ? el.title.replace(":", "" + "\u00A0".repeat(3)) : el.path}</section>
               </NavLink>
             </div>
           ))}
@@ -38,7 +38,7 @@ export default function HomePage({ homework, lessons }: IHomePageProps): JSX.Ele
           {homework.map((el) => (
             <div key={el.path} className={style.containerGrid}>
               <NavLink to={el.path}>
-                <section>{el.title || el.path}</section>
+                <section>{el.title ? el.title.replace(":", "" + "\u00A0".repeat(3)) : el.path}</section>
               </NavLink>
             </div>
           ))}

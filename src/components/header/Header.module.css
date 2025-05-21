@@ -19,7 +19,7 @@
   display: flex;
   justify-content: left;
   align-items: center;
-  gap: 2px;
+  gap: 10px;
 
   margin-left: 50px;
 
@@ -30,12 +30,24 @@
   padding: 5px 9px;
   font-size: 20px;
   color: rgb(46, 46, 46);
-  transition: transform 2s ease;
+
+  transition: 1s ease;
+  border-radius: 10px;
 }
 .linkContainer a:hover {
+  border-radius: 10px;
   color: black;
-  transition: transform 2s ease;
+
+  padding: 5px 9px;
   /* text-decoration: underline; */
+}
+
+.isNotActive {
+}
+
+.isNotActive:hover {
+  transition: 0.3s ease;
+  background-color: rgba(255, 232, 189, 0.399);
 }
 
 .isActive {
@@ -43,4 +55,8 @@
   color: #d56118;
   padding: 5px 9px;
   border-radius: 10px;
+}
+
+.isActive a:hover {
+  background-color: rgb(255, 232, 189);
 }

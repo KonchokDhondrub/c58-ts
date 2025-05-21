@@ -1,5 +1,4 @@
 import { HashRouter, Route, Routes, useLocation } from "react-router-dom";
-import { useEffect } from "react";
 import "./App.css";
 
 import Layout from "./components/layout/Layout";
@@ -28,29 +27,29 @@ import Lesson12 from "./lessons/lesson_12/Lesson12";
 
 // Homewok array
 const navHW = [
-  { path: "homework-01", title: "Homework 1: Business card", element: <Homework01 /> },
-  { path: "homework-02", title: "Homework 2: JSX, My Best Friends!", element: <Homework02 /> },
-  { path: "homework-03", title: "Homework 3: props & LogIn form", element: <Homework03 /> },
-  { path: "homework-04", title: "Homework 4: useState & Feedback form", element: <Homework04 /> },
-  { path: "homework-05", title: "Homework 5: React map() 🧝🏻‍♂️", element: <Homework05 /> },
-  { path: "homework-06", title: "Homework 6: TypeScript & Apollo 11 mission", element: <Homework06 /> },
-  { path: "homework-08", title: "Homework 8: useEffect & Foxes!", element: <Homework08 /> },
-  { path: "homework-12", title: "Homework 12: formik & Gender checker ", element: <Homework12 /> },
+  { path: "homework-01", title: "1: Business card", element: <Homework01 /> },
+  { path: "homework-02", title: "2: JSX, My Best Friends!", element: <Homework02 /> },
+  { path: "homework-03", title: "3: props & LogIn form", element: <Homework03 /> },
+  { path: "homework-04", title: "4: useState & Feedback form", element: <Homework04 /> },
+  { path: "homework-05", title: "5: React map() 🧝🏻‍♂️", element: <Homework05 /> },
+  { path: "homework-06", title: "6: TypeScript & Apollo 11 mission", element: <Homework06 /> },
+  { path: "homework-08", title: "8: useEffect & Foxes!", element: <Homework08 /> },
+  { path: "homework-12", title: "12: formik & Gender checker ", element: <Homework12 /> },
 ];
 
 // Lessons array
 const navLessons = [
-  { path: `lesson-01`, title: "Lesson 1: Hello, React!", element: <Lesson01 /> },
-  { path: "lesson-02", title: "Lesson 2: JSX components", element: <Lesson02 /> },
-  { path: "lesson-03", title: "Lesson 3: React props 👨‍👩‍👧‍👦", element: <Lesson03 /> },
-  { path: "lesson-04", title: "Lesson 4: useState hook 🪝", element: <Lesson04 /> },
-  { path: "lesson-05", title: "Lesson 5: React map() 🧝🏻‍♂️", element: <Lesson05 /> },
-  { path: "lesson-06", title: "Lesson 6: TypeScript pt1 💁‍♂️", element: <Lesson06 /> },
-  { path: "lesson-07", title: "Lesson 7: TypeScript pt2 💁", element: <Lesson07 /> },
-  { path: "lesson-08", title: "Lesson 8: useEffect hook 🪝", element: <Lesson08 /> },
-  { path: "lesson-09", title: "Lesson 9: CSS modules", element: <Lesson09 /> },
-  { path: "lesson-10", title: "Lesson 10: Fletch Cats! 🐈", element: <Lesson10 /> },
-  { path: "lesson-12", title: "Lesson 12: formik 💁‍♂️", element: <Lesson12 /> },
+  { path: `lesson-01`, title: "1: Hello, React!", element: <Lesson01 /> },
+  { path: "lesson-02", title: "2: JSX components", element: <Lesson02 /> },
+  { path: "lesson-03", title: "3: React props 👨‍👩‍👧‍👦", element: <Lesson03 /> },
+  { path: "lesson-04", title: "4: useState hook 🪝", element: <Lesson04 /> },
+  { path: "lesson-05", title: "5: React map() 🧝🏻‍♂️", element: <Lesson05 /> },
+  { path: "lesson-06", title: "6: TypeScript pt1 💁‍♂️", element: <Lesson06 /> },
+  { path: "lesson-07", title: "7: TypeScript pt2 💁", element: <Lesson07 /> },
+  { path: "lesson-08", title: "8: useEffect hook 🪝", element: <Lesson08 /> },
+  { path: "lesson-09", title: "9: CSS modules", element: <Lesson09 /> },
+  { path: "lesson-10", title: "10: Fletch Cats! 🐈", element: <Lesson10 /> },
+  { path: "lesson-12", title: "12: formik 💁‍♂️", element: <Lesson12 /> },
 ];
 
 const ExternalPage = ({ url }: { url: string }) => {
