@@ -1,7 +1,7 @@
 import { useFormik } from "formik";
 import MyButton from "../../components/myButton/MyButton";
 import styles from "./Homework.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface IFormValues {
   firstname: string;
@@ -9,16 +9,31 @@ interface IFormValues {
 
 interface IGenderResponse {
   name: string;
-  gender: "male" | "female" | null;
+  gender: string;
   probability: number;
   count: number;
   error?: string;
 }
 
 export default function Homework12() {
-  const [genderData, setGenderData] = useState<IGenderResponse | null>(null);
-  // let requestCount = 0;
-  // const maxRequests = 10;
+  useEffect(() => {
+    document.title = "Homework12: formik 💁‍♂️";
+  });
+
+  const [genderData, setGenderData] = useState<IGenderResponse>();
+
+  async function getCharacters(name: string) {
+    if (!name) return;
+
+    try {
+      const res = await fetch(`https://api.genderize.io/?name=${name}`);
+      const data: IGenderResponse = await res.json();
+      setGenderData(data);
+      //
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   const formik = useFormik({
     initialValues: {
@@ -30,33 +45,7 @@ export default function Homework12() {
     },
   });
 
-  async function getCharacters(name: string) {
-    // if (requestCount >= maxRequests) {
-    //   alert("Достигнут лимит запросов!");
-    //   return;
-    // }
-    if (!name) return;
-
-    // requestCount++;
-
-    try {
-      const res = await fetch(`https://api.genderize.io/?name=${name}`);
-      const data: IGenderResponse = await res.json();
-
-      if (data.error) {
-        console.error(data.error);
-        alert("Data Error!");
-        return;
-      }
-
-      setGenderData(data);
-    } catch (error) {
-      console.error(error);
-      alert("Network Error!");
-    }
-  }
-
-  function getIconGender(gender: string | null) {
+  function getIconGender(gender: string) {
     return gender === "male" ? "👨" : gender === "female" ? "👩" : "❓";
   }
 
@@ -65,7 +54,7 @@ export default function Homework12() {
       <h1>Homework12: formik 💁‍♂️</h1>
 
       <form onSubmit={formik.handleSubmit} className={styles.form}>
-        <input onChange={formik.handleChange} name="firstname" type="text" placeholder="firstname" value={formik.values.firstname} />
+        <input onChange={formik.handleChange} name="firstname" type="text" placeholder="type name" value={formik.values.firstname} />
         <MyButton type="submit" text="Daten senden" />
       </form>
 
@@ -73,7 +62,7 @@ export default function Homework12() {
         <div>
           <p></p>
           <p>
-            Name: <b>{genderData.name}</b>
+            Name: <b>{genderData.name[0].toUpperCase() + genderData.name.slice(1).toLowerCase()}</b>
           </p>
           <p>
             Gender:{" "}

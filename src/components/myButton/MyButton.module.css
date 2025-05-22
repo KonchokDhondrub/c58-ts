@@ -1,12 +1,12 @@
 .myButton {
   padding: 10px;
   margin: 2px;
-  outline: none;
+  /* outline: none; */
   border: none;
 }
 .myButton:focus {
   outline: none;
-  box-shadow: none;
+  /* box-shadow: none; */
 }
 
 .primary {

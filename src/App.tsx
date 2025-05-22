@@ -24,6 +24,7 @@ import Lesson08 from "./lessons/lesson_08/Lesson08";
 import Lesson09 from "./lessons/lesson_09/Lesson09";
 import Lesson10 from "./lessons/lesson_10/Lesson10";
 import Lesson12 from "./lessons/lesson_12/Lesson12";
+import Lesson13 from "./lessons/lesson_13/Lesson13";
 
 // Homewok array
 const navHW = [
@@ -50,6 +51,7 @@ const navLessons = [
   { path: "lesson-09", title: "9: CSS modules", element: <Lesson09 /> },
   { path: "lesson-10", title: "10: Fletch Cats! 🐈", element: <Lesson10 /> },
   { path: "lesson-12", title: "12: formik 💁‍♂️", element: <Lesson12 /> },
+  { path: "lesson-13", title: "13: Yup 🔐", element: <Lesson13 /> },
 ];
 
 const ExternalPage = ({ url }: { url: string }) => {
