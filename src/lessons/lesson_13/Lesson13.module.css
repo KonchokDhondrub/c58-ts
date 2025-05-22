@@ -1,0 +1,13 @@
+.robotForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.robotForm input {
+  font-size: 18px;
+  margin-bottom: 3px;
+}
+
+.errorMessage {
+  color: rgb(255, 66, 66);
+}
