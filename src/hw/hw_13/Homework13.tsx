@@ -1,4 +1,4 @@
-import LogInForm from "../../components/logInForm/LogInForm.tsx";
+import LoginForm from "../../components/loginForm/LoginForm.tsx";
 import RegisterForm from "../../components/registerForm/RegisterForm";
 import styles from "./Homework13.module.css";
 
@@ -6,8 +6,8 @@ export default function Homework13() {
   return (
     <div className={styles.formContainer}>
       <div>
-        <h1>LogIn</h1>
-        <LogInForm />
+        <h1>Login</h1>
+        <LoginForm />
       </div>
       <div>
         <br />

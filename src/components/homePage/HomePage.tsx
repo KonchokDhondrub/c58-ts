@@ -1,7 +1,7 @@
 import { useEffect, type JSX } from "react";
 import { Form, NavLink } from "react-router-dom";
 import style from "./HomePage.module.css";
-import { navHW, navLessons } from "../../reoutesConfig"
+import { navHW, navLessons } from "../../reoutesConfig";
 
 interface IAllData {
   path: string;
@@ -21,8 +21,6 @@ export default function HomePage(/*{ homework, lessons }: IHomePageProps*/): JSX
 
   return (
     <>
-      <h1>Home Page 🏠</h1>
-
       <div className={style.container}>
         <div className={style.box}>
           <h2>Lessons</h2>

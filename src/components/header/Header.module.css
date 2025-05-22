@@ -3,6 +3,7 @@
   top: 0px;
 
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 
@@ -15,16 +16,31 @@
   z-index: 10000;
 }
 
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 10px;
+
+  min-width: 600px;
+  width: 870px;
+  
+}
+
 .linkContainer {
   display: flex;
   justify-content: left;
   align-items: center;
+  flex-wrap: nowrap;
+  text-wrap: nowrap;
   gap: 10px;
 
-  margin-left: 50px;
+  margin-left: 30px;
 
-  width: 800px;
-  min-width: 400px;
+  /* width: 800px; */
+  /* min-width: 400px; */
 }
 .linkContainer a {
   padding: 5px 9px;
@@ -59,4 +75,17 @@
 
 .isActive a:hover {
   background-color: rgb(255, 232, 189);
+}
+
+.bannerContainer {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  text-wrap: nowrap;
+
+  margin-right: 20px;
+}
+
+.bannerContainer h1 {
+  margin: 0;
 }

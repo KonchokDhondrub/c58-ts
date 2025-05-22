@@ -1,8 +1,8 @@
 import { loginSchema } from "../AuthForms.tsx";
 import { useFormik } from "formik";
 
-import MyButton from "../../components/myButton/MyButton";
-import styles from "./LogInForm.module.css";
+import MyButton from "../myButton/MyButton.tsx";
+import styles from "./LoginForm.module.css";
 import { useState } from "react";
 
 interface IFormData {
@@ -10,7 +10,7 @@ interface IFormData {
   password: string;
 }
 
-export default function LogInForm() {
+export default function LoginForm() {
   const [loginData, setLoginData] = useState<IFormData>();
 
   const formik = useFormik({
@@ -39,8 +39,12 @@ export default function LogInForm() {
       </div>
       {loginData && (
         <div className={styles.errorForm}>
-          <p>Email: <b>{loginData?.email}</b></p>
-          <p>Password: <b>{loginData?.password ? loginData.password.slice(0, 1) + "*".repeat(Math.max(0, loginData.password.length - 2)) + loginData.password.slice(loginData.password.length - 1) : ""}</b></p>
+          <p>
+            Email: <b>{loginData?.email}</b>
+          </p>
+          <p>
+            Password: <b>{loginData?.password ? loginData.password.slice(0, 1) + "*".repeat(Math.max(0, loginData.password.length - 2)) + loginData.password.slice(loginData.password.length - 1) : ""}</b>
+          </p>
         </div>
       )}
     </div>
