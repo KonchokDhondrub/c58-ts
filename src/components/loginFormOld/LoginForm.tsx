@@ -1,5 +1,5 @@
 import { useState } from "react";
-import MyButton from "../myButton/MyButton";
+import MyButton from "../myButton/MyButton.tsx";
 import MyInput from "../myInput/MyInput.tsx";
 import st from "./LoginForm.module.css";
 
