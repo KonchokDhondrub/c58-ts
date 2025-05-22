@@ -17,8 +17,8 @@ interface IGenderResponse {
 
 export default function Homework12() {
   const [genderData, setGenderData] = useState<IGenderResponse | null>(null);
-  let requestCount = 0;
-  const maxRequests = 10;
+  // let requestCount = 0;
+  // const maxRequests = 10;
 
   const formik = useFormik({
     initialValues: {
@@ -31,13 +31,13 @@ export default function Homework12() {
   });
 
   async function getCharacters(name: string) {
-    if (requestCount >= maxRequests) {
-      alert("Достигнут лимит запросов!");
-      return;
-    }
+    // if (requestCount >= maxRequests) {
+    //   alert("Достигнут лимит запросов!");
+    //   return;
+    // }
     if (!name) return;
 
-    requestCount++;
+    // requestCount++;
 
     try {
       const res = await fetch(`https://api.genderize.io/?name=${name}`);
