@@ -37,7 +37,7 @@ export default function RegisterForm() {
         <input value={formik.values.email} name="email" onChange={formik.handleChange} type="email" placeholder="email" />
         <input value={formik.values.password} name="password" onChange={formik.handleChange} type="password" placeholder="password" />
         <input value={formik.values.confirmPassword} name="confirmPassword" onChange={formik.handleChange} type="password" placeholder="password confirmation" />
-        <MyButton type="submit" text="Register" />
+        <MyButton type="submit" text="Register" isDisabled={registerData && true} />
       </form>
       <div className={styles.errorForm}>
         <span className={styles.errorMessage}>{formik.errors.username}</span>
@@ -45,13 +45,19 @@ export default function RegisterForm() {
         <span className={styles.errorMessage}>{formik.errors.password}</span>
         <span className={styles.errorMessage}>{formik.errors.confirmPassword}</span>
       </div>
-      {registerData && 
-      <div>
-        <p></p>
-        <p>Username: {registerData?.username}</p>
-        <p>Email: {registerData?.email}</p>
-        <p>Password: {registerData?.password ? registerData.password.slice(0, 1) + "*".repeat(Math.max(0, registerData.password.length - 2)) + registerData.password.slice(registerData.password.length - 1) : ""}</p>
-      </div>}
+      {registerData && (
+        <div className={styles.errorForm}>
+          <p>
+            Username: <b>{registerData?.username}</b>
+          </p>
+          <p>
+            Email: <b>{registerData?.email}</b>
+          </p>
+          <p>
+            Password: <b>{registerData?.password ? registerData.password.slice(0, 1) + "*".repeat(Math.max(0, registerData.password.length - 2)) + registerData.password.slice(registerData.password.length - 1) : ""}</b>
+          </p>
+        </div>
+      )}
     </div>
   );
 }
