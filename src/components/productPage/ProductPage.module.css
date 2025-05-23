@@ -1,0 +1,70 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  height: 100%;
+
+  background-color: wheat;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+  max-width: 800px;
+
+  color: #161616;
+}
+
+.titleBtnCont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+}
+
+.container h2 {
+  text-align: left;
+  /* max-width: 500px; */
+  margin-bottom: 20px;
+  color: #161616;
+  
+}
+
+.imageDescBox {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+
+.imageDescBox img {
+
+  min-width: 200px;
+  max-width: 400px;
+  border-radius: 10px;
+  background-color: white;
+  padding: 20px;
+}
+
+.imageDescBox > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 10px;
+
+  text-align: left;
+
+  padding: 0 20px 0 0;
+}
+
+.imageDescBox h3 {
+  color: #161616;
+  margin: 0;
+}

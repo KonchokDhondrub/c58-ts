@@ -1,0 +1,24 @@
+.container {
+  /* max-width: 1000px;
+  min-width: 300px; */
+padding: 0 20px;
+
+}
+
+.container .label {
+  text-align: left;
+  margin: 0 0 15px 30px;
+  /* width: 100%; */
+}
+
+.container input {
+  font-size: 1.06em;
+}
+
+.shopContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+
+  /* margin: 20px; */
+}
