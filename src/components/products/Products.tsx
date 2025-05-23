@@ -3,51 +3,72 @@ import type { IProducts } from "./types";
 
 import ProductCard from "../productCard/ProductCard";
 import MyLoader from "../myLoader/MyLoader";
+import MyButton from "../myButton/MyButton";
 import styles from "./Products.module.css";
 
 export default function Products(): JSX.Element {
-  const [products, setProducts] = useState<IProducts[]>([]);
-  const [loader, setLoader] = useState<boolean>();
+  const [allProducts, setAllProducts] = useState<IProducts[]>([]);
+  const [loader, setLoader] = useState<boolean>(false);
   const [limit, setLimit] = useState<number>(5);
+  const [page, setPage] = useState<number>(0);
 
-  const getProducts = async (limit: number) => {
+  const getProducts = async () => {
     setLoader(true);
-    const res = await fetch(`https://fakestoreapi.com/products?limit=${limit}`);
+    const res = await fetch(`https://fakestoreapi.com/products`);
     const data = await res.json();
+    setAllProducts(data);
     setLoader(false);
-    setProducts(data);
   };
 
   useEffect(() => {
-    getProducts(limit);
-  }, [limit]);
+    getProducts();
+  }, []);
+
+  const totalPages = Math.ceil(allProducts.length / limit);
+
+  const nextPage = () => {
+    if (page < totalPages - 1) {
+      setPage((prev) => prev + 1);
+      console.log(page+1);
+    }
+  };
+
+  const prevPage = () => {
+    if (page > 0) {
+      setPage((prev) => prev - 1);
+      console.log(page-1);
+      
+    }
+  };
+
+  const handleLimitChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = Number(e.target.value);
+    if (value >= 1 && value <= 20) {
+      setLimit(value);
+      //   setPage(0);
+    }
+  };
+
+  const visibleProducts = allProducts.slice(page * limit, (page + 1) * limit);
 
   return (
     <div className={styles.container}>
-      <div className={styles.label}>
+      <div className={styles.labelBtn}>
         <label>
-          Quantity of items (1-20):{" "}
-          <input
-            type="number"
-            min="1"
-            max="20"
-            value={limit}
-            onChange={(e) => {
-              const value = Number(e.target.value);
-              if (value >= 1 && value <= 20) {
-                setLimit(value);
-              }
-            }}
-            className={styles.input}
-          />
+          Quantity of items per page (1–20): <input type="number" min="1" max="20" value={limit} onChange={handleLimitChange} className={styles.input} />
         </label>
+        <div>
+          <MyButton size="sm" text="Prev" onClick={prevPage} />
+          <MyButton size="sm" text="Next" onClick={nextPage} />
+        </div>
       </div>
+
       {loader ? (
         <MyLoader />
       ) : (
         <div className={styles.shopContainer}>
-          {products.map((p) => (
-            <ProductCard key={p.id} id={p.id} title={p.title} price={p.price} image={p.image} />
+          {visibleProducts.map((p) => (
+            <ProductCard key={p.id} {...p} />
           ))}
         </div>
       )}

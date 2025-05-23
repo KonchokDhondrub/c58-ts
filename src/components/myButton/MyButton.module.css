@@ -1,5 +1,5 @@
 .myButton {
-  padding: 10px;
+  padding: 7px 11px;
   margin: 2px;
   /* outline: none; */
   border: none;
@@ -43,11 +43,11 @@
 }
 
 .sm {
-  font-size: 14px;
+  font-size: 18px;
 }
 
 .md {
-  font-size: 20px;
+  font-size: 22px;
 }
 
 .lg {

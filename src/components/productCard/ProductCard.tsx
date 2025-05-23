@@ -14,7 +14,7 @@ export default function ProductCard({ id, title, price, image }: IProductCardPro
     <Link to={String(id)}>
       <div className={styles.shopContainerCard}>
         {/* <h4>{title.length > 30 ? title.slice(0, title.slice(0, 30).lastIndexOf(" ")) + "..." : title}</h4> */}
-        <h4>{title.length > 20 ? title.slice(0, 20) + "..." : title}</h4>
+        <h4>{title.length > 24 ? title.slice(0, 23) + "..." : title}</h4>
         <p>
           Price: $<b>{price}</b>
         </p>
