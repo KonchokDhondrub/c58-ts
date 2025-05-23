@@ -48,7 +48,7 @@ export const navHW = [
   { path: "homework-08", title: "8: useEffect & Foxes!", element: <Homework08 /> },
   { path: "homework-12", title: "12: formik & Gender checker ", element: <Homework12 /> },
   { path: "homework-13", title: "13: Yup 🔐: LogIn & Register", element: <Homework13 /> },
-  { path: "homework-14", title: "14: Dynamic Routing 🛒", element: <Lesson14 /> },
+  { path: "lesson-14", title: "14: Dynamic Routing 🛒", element: <Lesson14 /> },
 ];
 
 // Lessons array
