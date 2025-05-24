@@ -1,13 +1,14 @@
 import { NavLink, useLocation } from "react-router-dom";
+import { navHW, navLessons } from "../../reoutesConfig.tsx";
 import styles from "./Header.module.css";
 
-interface INavLinks {
+interface IBannerLink {
   to: string;
-  title: string;
-  banner: string;
+  title?: string;
+  banner?: string;
 }
 
-const navLinks: INavLinks[] = [
+const navLinks: IBannerLink[] = [
   { to: "/", title: "Home", banner: "Home Page 🏠" },
   { to: "/old-lessons", title: "Old Lessons", banner: "Old Sessions" },
 ];
@@ -15,7 +16,12 @@ const navLinks: INavLinks[] = [
 export default function Header() {
   const location = useLocation();
 
-  const currentBanner = navLinks.find((el) => el.to === location.pathname)?.banner || "";
+  // Приводим все маршруты к общему виду
+  const allLinks: IBannerLink[] = [...navLinks.map(({ to, banner }) => ({ to: "/" + to.replace(/^\//, ""), banner })), ...navHW.map(({ path, title }) => ({ to: "/" + path, title })), ...navLessons.map(({ path, title }) => ({ to: "/" + path, title }))];
+  console.log(allLinks);
+  // Ищем совпадение
+  const matched = allLinks.find((el) => location.pathname === el.to);
+  const currentBanner = matched?.title ?? matched?.banner ?? null;
 
   return (
     <header className={styles.header}>
@@ -27,7 +33,7 @@ export default function Header() {
             </NavLink>
           ))}
         </div>
-        <div className={styles.bannerContainer}>{currentBanner && <h1>{currentBanner}</h1>}</div>
+        <div className={styles.bannerContainer}>{currentBanner && <h1>{currentBanner.slice(currentBanner.indexOf(":") + 1)}</h1>}</div>
       </div>
     </header>
   );
