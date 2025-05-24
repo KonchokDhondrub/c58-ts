@@ -29,15 +29,12 @@ export default function Products(): JSX.Element {
   const nextPage = () => {
     if (page < totalPages - 1) {
       setPage((prev) => prev + 1);
-      console.log(page+1);
     }
   };
 
   const prevPage = () => {
     if (page > 0) {
       setPage((prev) => prev - 1);
-      console.log(page-1);
-      
     }
   };
 
@@ -51,15 +48,21 @@ export default function Products(): JSX.Element {
 
   const visibleProducts = allProducts.slice(page * limit, (page + 1) * limit);
 
+  useEffect(() => {
+    console.log("Current page:", page);
+  }, [page]);
+  // console.log(visibleProducts);
+
   return (
     <div className={styles.container}>
       <div className={styles.labelBtn}>
         <label>
           Quantity of items per page (1–20): <input type="number" min="1" max="20" value={limit} onChange={handleLimitChange} className={styles.input} />
         </label>
+
         <div>
-          <MyButton size="sm" text="Prev" onClick={prevPage} />
-          <MyButton size="sm" text="Next" onClick={nextPage} />
+          {page >= 1 && <MyButton size="sm" text="Prev" onClick={prevPage} />}
+          {page < allProducts.length / limit - 1 ? <MyButton size="sm" text="Next" onClick={nextPage} /> : <MyButton size="sm" text="Next" isDisabled={true} />}
         </div>
       </div>
 

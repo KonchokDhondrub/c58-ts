@@ -27,7 +27,7 @@ export default function ProductPage(): JSX.Element {
 
   const [product, setProduct] = useState<IProducts>(initialState);
   const [loader, setLoader] = useState<boolean>();
-  const [order, setOrder] = useState<{ id: number; amount: number }>();
+  const [order, setOrder] = useState<{ userId?: string; id: number; amount: number }>();
 
   useEffect(() => {
     setLoader(true);
