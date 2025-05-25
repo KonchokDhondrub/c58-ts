@@ -1,3 +1,9 @@
+.positionCenter {
+  position: absolute;
+  top: 45.5%;
+  left: 45.5%;
+}
+
 .loader {
   width: 48px;
   height: 48px;
@@ -7,14 +13,6 @@
   display: inline-block;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
-  position: absolute;
-  top: 45.5%;
-  left: 45.5%;
-}
-
-.positionCenter {
-  top: 45.5%;
-  left: 45.5%;
 }
 
 @keyframes rotation {
@@ -23,5 +21,48 @@
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+/* HTML: <div class="loader"></div> */
+.loader2 {
+  width: 70px;
+  aspect-ratio: 1;
+  background: radial-gradient(farthest-side, rgb(255, 115, 0) 90%, #0000) center/16px 16px, radial-gradient(farthest-side, rgb(79, 100, 44) 90%, #0000) bottom/12px 12px;
+  background-repeat: no-repeat;
+  animation: l17 1s infinite linear;
+  position: relative;
+}
+.loader2::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  aspect-ratio: 1;
+  inset: auto 0 16px;
+  margin: auto;
+  background: #ccc;
+  border-radius: 50%;
+  transform-origin: 50% calc(100% + 10px);
+  animation: inherit;
+  animation-duration: 0.5s;
+}
+@keyframes l17 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+/* HTML: <div class="loader"></div> */
+.loader3 {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(farthest-side, rgb(255, 115, 0) 94%, #0000) top/8px 8px no-repeat, conic-gradient(#0000 30%, rgb(255, 115, 0));
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
+  animation: l13 1s infinite linear;
+}
+@keyframes l13 {
+  100% {
+    transform: rotate(1turn);
   }
 }

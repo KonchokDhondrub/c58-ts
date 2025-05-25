@@ -43,7 +43,7 @@ export default function ProductPage(): JSX.Element {
   return (
     <div className={styles.main}>
       {loader ? (
-        <MyLoader />
+        <MyLoader variant="3" />
       ) : (
         <div className={styles.container}>
           <div className={styles.titleBtnCont}>

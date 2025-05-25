@@ -13,7 +13,6 @@ export default function Products(): JSX.Element {
   const [page, setPage] = useState<number>(0);
 
   const getProducts = async () => {
-    setLoader(true);
     const res = await fetch(`https://fakestoreapi.com/products`);
     const data = await res.json();
     setAllProducts(data);
@@ -21,7 +20,10 @@ export default function Products(): JSX.Element {
   };
 
   useEffect(() => {
+    setLoader(true);
+    // setTimeout(() => {
     getProducts();
+    // }, 1000);
   }, []);
 
   const totalPages = Math.ceil(allProducts.length / limit);
@@ -67,7 +69,7 @@ export default function Products(): JSX.Element {
       </div>
 
       {loader ? (
-        <MyLoader />
+        <MyLoader variant="3" />
       ) : (
         <div className={styles.shopContainer}>
           {visibleProducts.map((p) => (
