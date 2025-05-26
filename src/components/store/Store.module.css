@@ -1,21 +1,28 @@
 .container {
   padding: 0 20px;
   margin: 20px 0;
+  position: relative;
 }
 
-.labelBtn {
+.topRow {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  align-content: center;
 
   position: relative;
 
   text-align: left;
-  margin: 0 20px 15px;
+  margin: 0 15px 15px;
+}
+.topRow > div {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
 }
 
-.labelBtn label {
+.topRow label {
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -42,7 +49,7 @@
   margin: 0 5px;
 }
 
-.container input {
+.handleSubmit input {
   text-align: center;
 
   height: 32px;
@@ -73,4 +80,43 @@
   z-index: 1000;
 
   text-wrap: nowrap;
+}
+
+.loginRegistrationContainer {
+  position: absolute;
+  z-index: 10;
+  align-self: center;
+  text-align: center;
+
+  background-color: #f1f1f1f0;
+  padding: 0 30px;
+  border-radius: 0 0 10px 10px;
+  border: 1px rgb(107, 107, 107) solid;
+  border-top: none;
+
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.636);
+}
+
+.loginRegistrationContainer h1 {
+  color: #313131;
+  font-size: 25px;
+}
+
+.loginRegistrationContainer input {
+  border: 1px black solid;
+  padding: 5px 8px;
+}
+
+.fadeIn {
+  position: absolute;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 10;
+  top: 126px;
+}
+.hidden {
+  position: absolute;
+  opacity: 0;
+  transform: translateY(-10px);
 }

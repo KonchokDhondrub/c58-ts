@@ -5,7 +5,7 @@
   align-self: center;
 
   background-color: rgb(245, 245, 245);
-  color: #000000;
+  color: #282828;
 
   width: 100%;
   min-width: 200px;
@@ -14,9 +14,7 @@
 
   margin: 0 20px;
   /* padding: 20px; */
+
 }
 
-/* .container h2 {
-  margin-top: 10px;
-  color: #000000;
-} */
+
