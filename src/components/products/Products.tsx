@@ -73,7 +73,7 @@ export default function Products(): JSX.Element {
       ) : (
         <div className={styles.shopContainer}>
           {visibleProducts.map((p) => (
-            <ProductCard key={p.id} {...p} />
+            <ProductCard key={p.id} id={p.id} title={p.title} price={p.price} image={p.image} />
           ))}
         </div>
       )}

@@ -18,7 +18,7 @@ export default function Header() {
 
   // Приводим все маршруты к общему виду
   const allLinks: IBannerLink[] = [...navLinks.map(({ to, banner }) => ({ to: "/" + to.replace(/^\//, ""), banner })), ...navHW.map(({ path, title }) => ({ to: "/" + path, title })), ...navLessons.map(({ path, title }) => ({ to: "/" + path, title }))];
-  console.log(allLinks);
+  // console.log(allLinks);
   // Ищем совпадение
   const matched = allLinks.find((el) => location.pathname === el.to);
   const currentBanner = matched?.title ?? matched?.banner ?? null;

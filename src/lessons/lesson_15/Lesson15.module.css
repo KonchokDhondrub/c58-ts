@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-self: center;
+
+  background-color: rgb(245, 245, 245);
+  color: #000000;
+
+  width: 100%;
+  min-width: 200px;
+  max-width: 1000px;
+  /* height: 100vh; */
+
+  margin: 0 20px;
+  /* padding: 20px; */
+}
+
+/* .container h2 {
+  margin-top: 10px;
+  color: #000000;
+} */
