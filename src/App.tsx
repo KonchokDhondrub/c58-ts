@@ -2,7 +2,6 @@ import { HashRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 
 import Layout from "./components/layout/Layout";
-// import HomePage from "./components/homePage/HomePage";
 import { navLinks, navHW, navLessons } from "./reoutesConfig.tsx";
 
 function App() {
