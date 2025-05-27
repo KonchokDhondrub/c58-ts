@@ -1,6 +1,6 @@
 import HomePage from "./components/homePage/HomePage";
 import ProductPage from "./components/productPage/ProductPage";
-import StorePage from "./components/store/storeCard/storePage/StorePage";
+import StorePage from "./components/store/storePage/StorePage";
 
 import Homework01 from "./hw/hw_01/Homework01";
 import Homework02 from "./hw/hw_02/Homework02";

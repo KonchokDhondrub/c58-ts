@@ -1,10 +1,10 @@
 import { useEffect, useState, type JSX } from "react";
 import { Link, useParams } from "react-router-dom";
-import type { IProducts } from "../../types.ts";
+import type { IProducts } from "../types.ts";
 
-import MyLoader from "../../../myLoader/MyLoader";
-import MyButton from "../../../myButton/MyButton";
-import MyCounter from "../../../myCounter/MyCounter";
+import MyLoader from "../../myLoader/MyLoader.tsx";
+import MyButton from "../../myButton/MyButton.tsx";
+import MyCounter from "../../myCounter/MyCounter.tsx";
 import styles from "./StorePage.module.css";
 
 const initialState: IProducts = {
@@ -57,9 +57,9 @@ export default function StorePage(): JSX.Element {
 
   const averageRating = reviews.length > 0 ? reviews.reduce((acc, r) => acc + r.rating, 0) / reviews.length : 0;
 
-useEffect(() => {
-  console.log("Order status: ", order);
-}, [order])
+  useEffect(() => {
+    console.log("Order status: ", order);
+  }, [order]);
 
   return (
     <div className={styles.main}>
