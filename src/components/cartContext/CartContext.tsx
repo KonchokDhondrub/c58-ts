@@ -9,7 +9,7 @@ interface ICartItem {
 
 interface ICartContextType {
   cart: ICartItem[];
-  assToCart: (product: ICartItem) => void;
+  addToCart: (product: ICartItem) => void;
   removeFromCart: (id: number) => void;
   clearCart: () => void;
 }
@@ -33,11 +33,12 @@ const removeFromCart = (id: number) => {
   setCart((prevCart) => prevCart.filter((item) => item.id !== id));
 };
 
+// Clear Cart
 const clearCart = () => {
   setCart([]);
 };
 
 // Cart Provider
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
-  return <>{children}</>;
+  return <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart }}>{children}</CartContext.Provider>;
 };
