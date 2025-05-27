@@ -8,7 +8,7 @@ interface IMyButtonProps {
   className?: string;
   onClick?: () => void /* () => void */;
   isDisabled?: boolean;
-  variant?: "primary" | "danger" | "success";
+  variant?: "primary" | "danger" | "success" | "transparent";
   size?: "sm" | "md" | "lg";
   id?: string;
 }
@@ -29,6 +29,7 @@ function MyButton({ id, type = "button", text = "click me!", className, isDisabl
                 [style.primary]: variant === "primary",
                 [style.danger]: variant === "danger",
                 [style.success]: variant === "success",
+                [style.transparent]: variant === "transparent",
                 [style.disabled]: isDisabled === true,
                 [style.sm]: size === "sm",
                 [style.md]: size === "md",

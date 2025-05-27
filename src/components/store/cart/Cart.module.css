@@ -1,0 +1,61 @@
+.container {
+  margin-bottom: 20px;
+}
+
+.container h2 {
+  color: rgb(12, 12, 12);
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+
+  padding: 0 20px 0 40px;
+}
+
+.cartContentContainer {
+  text-align: left;
+  font-size: 20px;
+
+  min-width: 400px;
+}
+
+.cartContentContainer .items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* flex-wrap: nowrap; */
+  height: 20%;
+
+  gap: 20px;
+
+  text-align: left;
+  font-size: 20px;
+  text-wrap: nowrap;
+
+  border-bottom: 1px gray solid;
+}
+
+.childActive {
+  flex-basis: 80%;
+}
+.chilNotdActive {
+  text-align: right;
+  flex-basis: 10%;
+}
+
+.totalPrice {
+  text-align: right;
+  color: rgb(12, 12, 12);
+
+  flex-basis: 10%;
+}
+
+.totalPrice h3 {
+  color: rgb(12, 12, 12);
+  margin: 5px 100px 0 0;
+}

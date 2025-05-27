@@ -33,6 +33,14 @@
   background-color: #22bb33;
 }
 
+.transparent {
+  background-color: transparent;
+  color: rgb(24, 24, 24);
+}
+.transparent:hover {
+  background-color: #00000017;
+}
+
 .disabled {
   background-color: darkgray;
   color: rgb(62, 62, 62);

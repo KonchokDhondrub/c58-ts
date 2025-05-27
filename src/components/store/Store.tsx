@@ -8,6 +8,7 @@ import MyButton from "../myButton/MyButton";
 import StoreCard from "./storeCard/StoreCard";
 import Homework13 from "../../hw/hw_13/Homework13";
 import styles from "./Store.module.css";
+import Cart from "./cart/Cart";
 
 const schema = Yup.object().shape({
   limit: Yup.number().min(1, "Choose between 1 and 20").max(20, "Choose between 1 and 20"),
@@ -19,6 +20,7 @@ export default function Store(): JSX.Element {
   const [limit, setLimit] = useState<number>(20);
   const [page, setPage] = useState<number>(0);
   const [isLoggedin, setIsLoggedin] = useState<boolean>(false);
+  const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
 
   const formik = useFormik({
     initialValues: {
@@ -63,6 +65,13 @@ export default function Store(): JSX.Element {
 
   return (
     <div className={styles.container}>
+      {/* Cart */}
+      {isCartOpen && (
+        <div className={styles.cartContainer}>
+          <Cart />
+        </div>
+      )}
+
       <div className={styles.topRow}>
         {/* Login form */}
         <div className={isLoggedin ? styles.fadeIn : styles.hidden}>
@@ -90,6 +99,9 @@ export default function Store(): JSX.Element {
             {page >= 1 && <MyButton size="sm" text="Prev" onClick={() => prevPage()} />}
             {allProducts.length < limit ? <MyButton size="sm" text="Next" isDisabled={true} /> : <MyButton size="sm" text="Next" onClick={() => nextPage()} />}
           </div>
+
+          {/* Cart Button */}
+          <MyButton text="🛒" variant="transparent" onClick={() => setIsCartOpen((prev) => !prev)} />
 
           {/* Login Button  */}
           <MyButton text="Login" variant="success" onClick={() => setIsLoggedin((prev) => !prev)} />

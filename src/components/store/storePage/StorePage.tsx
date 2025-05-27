@@ -2,6 +2,7 @@ import { useEffect, useState, type JSX } from "react";
 import { Link, useParams } from "react-router-dom";
 import type { IProducts } from "../types.ts";
 
+import { useCart } from "../../cartContext/CartContext.tsx";
 import MyLoader from "../../myLoader/MyLoader.tsx";
 import MyButton from "../../myButton/MyButton.tsx";
 import MyCounter from "../../myCounter/MyCounter.tsx";
@@ -20,33 +21,35 @@ const initialState: IProducts = {
   tags: [],
 };
 
-interface IOrder {
-  userId: string;
-  id: number;
-  amount: number;
-}
+// interface IOrder {
+//   userId: string;
+//   id: number;
+//   amount: number;
+// }
 
-const initialStateOrder: IOrder = {
-  userId: "",
-  id: 0,
-  amount: 0,
-};
+// const initialStateOrder: IOrder = {
+//   userId: "",
+//   id: 0,
+//   amount: 0,
+// };
 
 export default function StorePage(): JSX.Element {
-  const { id } = useParams();
-  const userId = "User007";
+  const { id: paramId } = useParams();
+  // const userId = "User007";
+
+  const { addToCart } = useCart();
 
   const [count, setCount] = useState(1);
 
   const [product, setProduct] = useState<IProducts>(initialState);
   const [loader, setLoader] = useState<boolean>();
-  const [order, setOrder] = useState<IOrder[]>([]);
-  const { title, category, price, description, images, brand, reviews } = product;
+  // const [order, setOrder] = useState<IOrder[]>([]);
+  const { id, title, category, price, description, images, brand, reviews } = product;
 
   useEffect(() => {
     setLoader(true);
 
-    fetch("https://dummyjson.com/products/" + id)
+    fetch("https://dummyjson.com/products/" + paramId)
       .then((res) => res.json())
       .then((data) => {
         setLoader(false);
@@ -57,9 +60,9 @@ export default function StorePage(): JSX.Element {
 
   const averageRating = reviews.length > 0 ? reviews.reduce((acc, r) => acc + r.rating, 0) / reviews.length : 0;
 
-  useEffect(() => {
-    console.log("Order status: ", order);
-  }, [order]);
+  // useEffect(() => {
+  //   console.log("Order status: ", order);
+  // }, [order]);
 
   return (
     <div className={styles.main}>
@@ -97,8 +100,7 @@ export default function StorePage(): JSX.Element {
                 <MyButton
                   text="add to cart"
                   onClick={() => {
-                    const newOrder = { userId: userId, id: Number(id), amount: count };
-                    setOrder((prev) => [...prev, newOrder]);
+                    addToCart({ id, title, price, quantity: count });
                   }}
                 />
                 <MyCounter count={count} setCount={setCount} />

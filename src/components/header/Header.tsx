@@ -11,6 +11,7 @@ interface IBannerLink {
 const navLinks: IBannerLink[] = [
   { to: "/", title: "Home", banner: "Home Page 🏠" },
   { to: "/old-lessons", title: "Old Lessons", banner: "Old Sessions" },
+  // { to: "/cart", title: "Cart",},
 ];
 
 export default function Header() {

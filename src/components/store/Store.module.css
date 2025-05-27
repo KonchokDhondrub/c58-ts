@@ -4,6 +4,9 @@
   position: relative;
 }
 
+.cartContainer {
+}
+
 .topRow {
   display: flex;
   flex-direction: row;
