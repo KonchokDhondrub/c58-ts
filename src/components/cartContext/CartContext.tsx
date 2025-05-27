@@ -18,6 +18,7 @@ interface ICartContextType {
   removeFromCart: (id: number) => void;
   // очистка корзины
   clearCart: () => void;
+  updateQuantity: (id: number, quantity: number) => void;
 }
 
 // * 1. делаем контекст с помощью встроенного в react метода createContext()
@@ -31,13 +32,10 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   // добавление продукта в корзину
   const addToCart = (product: ICartItem) => {
     setCart((prevCart) => {
-      // проверка на наличие продукта в корзине
       const productExist = prevCart.find((item) => item.id === product.id);
       if (productExist) {
-        // если такой продукт уже есть мы у него увеличиваем quantity на 1
         return prevCart.map((item) => (item.id === product.id ? { ...item, quantity: item.quantity + product.quantity } : item));
       }
-      // если такого продукта нет, то мы его добавляем и в значении quantity указываем 1
       return [...prevCart, { ...product, quantity: product.quantity }];
     });
   };
@@ -52,10 +50,14 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     setCart([]);
   };
 
+  const updateQuantity = (id: number, quantity: number) => {
+    setCart((prevCart) => prevCart.map((item) => (item.id === id ? { ...item, quantity } : item)));
+  };
+
   return (
     // за место children придут обернутые в компонент элементы
     // за счет контекста эти элементы получат доступ к данным в этом компоненте
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart }}>{children}</CartContext.Provider>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart, updateQuantity }}>{children}</CartContext.Provider>
   );
 };
 

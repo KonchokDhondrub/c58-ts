@@ -19,7 +19,7 @@
 
 .danger {
   background-color: #f6392f;
-  color: rgb(24, 24, 24);
+  color: rgb(244, 244, 244);
 }
 .danger:hover {
   background-color: #e00f04;
@@ -34,11 +34,11 @@
 }
 
 .transparent {
-  background-color: transparent;
+  background-color: rgba(133, 133, 133, 0.125);
   color: rgb(24, 24, 24);
 }
 .transparent:hover {
-  background-color: #00000017;
+  background-color: rgba(133, 133, 133, 0.508);
 }
 
 .disabled {

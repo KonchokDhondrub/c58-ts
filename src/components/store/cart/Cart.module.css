@@ -1,13 +1,18 @@
 .container {
-  margin-bottom: 20px;
+  margin: 0;
+  padding: 10px 10px;
 }
 
 .container h2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   color: rgb(12, 12, 12);
   margin: 0;
+  padding: 0 10px 0 30px;
 }
 
-.header {
+/* .header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -15,47 +20,58 @@
   gap: 30px;
 
   padding: 0 20px 0 40px;
+} */
+
+.empty {
+  /* min-width: 500px; */
 }
 
 .cartContentContainer {
   text-align: left;
   font-size: 20px;
-
-  min-width: 400px;
 }
 
 .cartContentContainer .items {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: end;
   /* flex-wrap: nowrap; */
   height: 20%;
 
-  gap: 20px;
+  gap: 10px;
 
   text-align: left;
   font-size: 20px;
-  text-wrap: nowrap;
 
   border-bottom: 1px gray solid;
+  padding: 5px 0;
 }
 
 .childActive {
-  flex-basis: 80%;
+  flex-basis: 60%;
 }
 .chilNotdActive {
   text-align: right;
-  flex-basis: 10%;
+  flex-basis: 15%;
+  text-wrap: nowrap;
 }
 
 .totalPrice {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
   text-align: right;
-  color: rgb(12, 12, 12);
+  gap: 10px;
 
-  flex-basis: 10%;
+  color: rgb(12, 12, 12);
+  margin-top: 15px;
+
+  flex-basis: 25%;
 }
 
 .totalPrice h3 {
   color: rgb(12, 12, 12);
-  margin: 5px 100px 0 0;
+  margin: 0;
 }
