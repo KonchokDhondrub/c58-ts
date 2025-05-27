@@ -6,8 +6,8 @@ import { useFormik } from "formik";
 import MyLoader from "../myLoader/MyLoader";
 import MyButton from "../myButton/MyButton";
 import StoreCard from "./storeCard/StoreCard";
-import styles from "./Store.module.css";
 import Homework13 from "../../hw/hw_13/Homework13";
+import styles from "./Store.module.css";
 
 const schema = Yup.object().shape({
   limit: Yup.number().min(1, "Choose between 1 and 20").max(20, "Choose between 1 and 20"),

@@ -16,24 +16,32 @@ const initialState: IProducts = {
   images: [],
   thumbnail: "",
   brand: "",
-  reviews: {
-    rating: 0,
-    comment: "",
-    date: 0,
-    reviewerName: "",
-    reviewerEmail: "",
-  },
+  reviews: [],
   tags: [],
+};
+
+interface IOrder {
+  userId: string;
+  id: number;
+  amount: number;
+}
+
+const initialStateOrder: IOrder = {
+  userId: "",
+  id: 0,
+  amount: 0,
 };
 
 export default function StorePage(): JSX.Element {
   const { id } = useParams();
+  const userId = "User007";
 
   const [count, setCount] = useState(1);
 
   const [product, setProduct] = useState<IProducts>(initialState);
   const [loader, setLoader] = useState<boolean>();
-  const [order, setOrder] = useState<{ userId?: string; id: number; amount: number }>();
+  const [order, setOrder] = useState<IOrder[]>([]);
+  const { title, category, price, description, images, brand, reviews } = product;
 
   useEffect(() => {
     setLoader(true);
@@ -47,6 +55,12 @@ export default function StorePage(): JSX.Element {
       });
   }, [id]);
 
+  const averageRating = reviews.length > 0 ? reviews.reduce((acc, r) => acc + r.rating, 0) / reviews.length : 0;
+
+useEffect(() => {
+  console.log("Order status: ", order);
+}, [order])
+
   return (
     <div className={styles.main}>
       {loader ? (
@@ -54,29 +68,37 @@ export default function StorePage(): JSX.Element {
       ) : (
         <div className={styles.container}>
           <div className={styles.titleBtnCont}>
-            <h2>{product.title}</h2>
+            <span>
+              <h2>
+                {title} - {brand}
+              </h2>
+              <p className={styles.category}>{category}</p>
+            </span>
             <Link to="/lesson-15">
               <MyButton type="button" text="back" />
             </Link>
           </div>
 
           <div className={styles.imageDescBox}>
-            {/* <div className={styles.imageContainer}> */}
-            <img src={product.images[0]} alt={String(product.id)} />
-            {/* </div> */}
+            {/* Image cContainer */}
+            <div className={styles.imageContainer}>
+              <img src={images[0]} alt={String(id)} />
+            </div>
             <div>
               <h3>
-                Price: $<b>{product.price}</b>
+                Price: $<b>{price}</b>
               </h3>
-              <h3>{/* Rating: <b>{product.rating.rate}</b> */}</h3>
-              <p>{product.description}</p>
+              <h3>
+                Rating: <b>{averageRating.toFixed(2)}</b>
+              </h3>
+              <p>{description}</p>
+
               <div className={styles.addCartContainer}>
                 <MyButton
                   text="add to cart"
                   onClick={() => {
-                    const newOrder = { id: product.id, amount: count };
-                    setOrder(newOrder);
-                    console.log("Order set:", newOrder);
+                    const newOrder = { userId: userId, id: Number(id), amount: count };
+                    setOrder((prev) => [...prev, newOrder]);
                   }}
                 />
                 <MyCounter count={count} setCount={setCount} />

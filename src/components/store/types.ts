@@ -1,3 +1,11 @@
+interface Review {
+  rating: number;
+  comment: string;
+  date: number;
+  reviewerName: string;
+  reviewerEmail: string;
+}
+
 export interface IProducts {
   id: number;
   title: string;
@@ -7,12 +15,6 @@ export interface IProducts {
   images: string[];
   thumbnail: string;
   brand: string;
-  reviews: {
-    rating: number;
-    comment: string;
-    date: number;
-    reviewerName: string;
-    reviewerEmail: string;
-  };
+  reviews: Review[];
   tags: string[];
 }

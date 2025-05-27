@@ -29,6 +29,19 @@
   width: 100%;
 }
 
+.titleBtnCont > span {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.titleBtnCont > span > p {
+  padding: 0;
+  margin: 0;
+}
+
 .container h2 {
   text-align: left;
   /* max-width: 500px; */
@@ -48,6 +61,7 @@
   border-radius: 10px;
   background-color: white;
   padding: 20px;
+  box-shadow: 0 0 6px rgba(153, 153, 153, 0.636);
 }
 
 .imageDescBox > div {
@@ -64,6 +78,10 @@
 .imageDescBox h3 {
   color: #161616;
   margin: 0;
+}
+
+.category {
+  color: #434343bb;
 }
 
 .addCartContainer {
