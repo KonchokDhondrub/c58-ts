@@ -1,20 +1,24 @@
 import type { JSX } from "react";
+import type { FormikProps } from "formik";
+
+import styles from "./MuInput.module.css";
 
 interface IMyInputProps {
-  name?: string;
+  name: string;
   type: "button" | "checkbox" | "color" | "date" | "datetime-local" | "email" | "file" | "hidden" | "image" | "month" | "number" | "password" | "radio" | "range" | "reset" | "search" | "submit" | "tel" | "text" | "time" | "url" | "week";
   placeholder?: string;
   label?: string;
-  onChange?: any /* () => void */;
+  onChange?: () => void;
+  formik: FormikProps<any>;
 }
 
-function MyInput({ name = "not defined", type = "text", placeholder = "write here", label, onChange = () => console.log("onChange") }: IMyInputProps): JSX.Element {
+export default function MyInput({ formik, name, type = "text", placeholder, label, onChange }: IMyInputProps): JSX.Element {
   return (
     <>
-      <label htmlFor={name}>{label}</label>
-      <input type={type} name={name} placeholder={placeholder} onChange={onChange}></input>
+      <div>
+        <label>{label}</label>
+      </div>
+      <input value={formik.values[name]} type={type} name={name} placeholder={placeholder} onChange={formik.handleChange}></input>
     </>
   );
 }
-
-export default MyInput;

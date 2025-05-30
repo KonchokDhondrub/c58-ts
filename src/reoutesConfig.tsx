@@ -27,6 +27,7 @@ import Lesson12 from "./lessons/lesson_12/Lesson12";
 import Lesson13 from "./lessons/lesson_13/Lesson13";
 import Lesson14 from "./lessons/lesson_14/Lesson14";
 import Lesson15 from "./lessons/lesson_15/Lesson15";
+import Lesson17 from "./lessons/lesson_17/Lesson17";
 
 const ExternalPage = ({ url }: { url: string }) => {
   return <iframe src={url} style={{ width: "100%", height: "100vh", border: "none" }} />;
@@ -39,7 +40,7 @@ export const navLinks = [
   { path: "old-lessons", title: "Old Lessons Page", element: <ExternalPage url="https://konchokdhondrub.github.io/frontend/" /> },
   { path: "lesson-14/:id", title: "", element: <ProductPage /> },
   { path: "lesson-15/:id", title: "", element: <StorePage /> },
-  { path: "lesson-15/cart", title: "Cart", element: <Cart /> },
+  // { path: "lesson-15/cart", title: "Cart", element: <Cart /> },
 ];
 
 // Homewok array
@@ -72,4 +73,5 @@ export const navLessons = [
   { path: "lesson-13", title: "13: Yup 🔐", element: <Lesson13 /> },
   { path: "lesson-14", title: "14: Dynamic Routing 🛒", element: <Lesson14 /> },
   { path: "lesson-15", title: "15: Store 🛒", element: <Lesson15 /> },
+  { path: "lesson-17", title: "17: Children Props 🙇‍♂️", element: <Lesson17 /> },
 ];

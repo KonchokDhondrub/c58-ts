@@ -7,7 +7,7 @@ import MyLoader from "../myLoader/MyLoader";
 import MyButton from "../myButton/MyButton";
 import StoreCard from "./storeCard/StoreCard";
 import Homework13 from "../../hw/hw_13/Homework13";
-import Cart from "./cart/Cart";
+import Cart, { getTotalPrice } from "./cart/Cart";
 import styles from "./Store.module.css";
 
 const schema = Yup.object().shape({
@@ -97,6 +97,7 @@ export default function Store(): JSX.Element {
           </div>
 
           {/* Cart Button */}
+          {/* <p>{getTotalPrice(cart)}€</p> */}
           <MyButton
             text="🛒"
             variant="transparent"

@@ -24,7 +24,7 @@ export default function HomePage(/*{ homework, lessons }: IHomePageProps*/): JSX
       <div className={style.container}>
         <div className={style.box}>
           <h2>Lessons</h2>
-          {navLessons.map((el) => (
+          {navLessons.slice().reverse().map((el) => (
             <div key={el.path} className={style.containerGrid}>
               <NavLink to={el.path}>
                 <section>{el.title ? el.title.replace(":", "" + "\u00A0".repeat(3)) : el.path}</section>
@@ -34,7 +34,7 @@ export default function HomePage(/*{ homework, lessons }: IHomePageProps*/): JSX
         </div>
         <div className={style.box}>
           <h2>Homework</h2>
-          {navHW.map((el) => (
+          {navHW.slice().reverse().map((el) => (
             <div key={el.path} className={style.containerGrid}>
               <NavLink to={el.path}>
                 <section>{el.title ? el.title.replace(":", "" + "\u00A0".repeat(3)) : el.path}</section>

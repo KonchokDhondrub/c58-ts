@@ -1,6 +1,6 @@
 import type { JSX } from "react";
-import { useCart } from "../../cartContext/CartContext";
 
+import { useCart, type ICartItem } from "../../cartContext/CartContext";
 import MyButton from "../../myButton/MyButton";
 import MyCounter from "../../myCounter/MyCounter";
 import styles from "./Cart.module.css";
@@ -9,20 +9,20 @@ interface CartProps {
   setIsCartOpen: (open: boolean) => void;
 }
 
+export const getTotalPrice = (cart: ICartItem[]) => {
+  return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+};
+
 export default function Cart({ setIsCartOpen }: CartProps): JSX.Element {
   const { cart, addToCart, removeFromCart, clearCart, updateQuantity } = useCart();
-
-  const getTotalPrice = () => {
-    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
-  };
 
   return (
     <div className={styles.container}>
       <h2>
-        :user: cart <MyButton size="sm" text="keep shoping 🛒" variant="transparent" onClick={() => setIsCartOpen(false)} />
+        Guest cart <MyButton size="sm" text="keep shoping 🛒" variant="transparent" onClick={() => setIsCartOpen(false)} />
       </h2>
       {/* <div className={styles.header}> */}
-        {/* <Link to="/lesson-15">
+      {/* <Link to="/lesson-15">
           <MyButton type="button" text="back" />
         </Link> */}
       {/* </div> */}
@@ -37,7 +37,8 @@ export default function Cart({ setIsCartOpen }: CartProps): JSX.Element {
                 <div className={styles.chilNotdActive}>x{el.quantity}</div>
                 <div className={styles.totalPrice}>{(el.price * el.quantity).toFixed(2)}€</div>
 
-                <MyCounter variant="transparent"
+                <MyCounter
+                  variant="transparent"
                   count={el.quantity}
                   setCount={(newCount: number) => {
                     if (newCount > 0) {
@@ -51,7 +52,7 @@ export default function Cart({ setIsCartOpen }: CartProps): JSX.Element {
             ))}
           </div>
           <div className={styles.totalPrice}>
-            <h3>Total price: {getTotalPrice().toFixed(2)}€</h3>
+            <h3>Total price: {getTotalPrice(cart)}€</h3>
             <MyButton text="order" />
             <MyButton text="clear cart" onClick={clearCart} variant="danger" />
           </div>
