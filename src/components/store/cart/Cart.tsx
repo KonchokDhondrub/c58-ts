@@ -10,7 +10,7 @@ interface CartProps {
 }
 
 export const getTotalPrice = (cart: ICartItem[]) => {
-  return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  return cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
 };
 
 export default function Cart({ setIsCartOpen }: CartProps): JSX.Element {
@@ -19,8 +19,7 @@ export default function Cart({ setIsCartOpen }: CartProps): JSX.Element {
   return (
     <div className={styles.container}>
       <h2>
-        Guest cart{" "}
-        <MyButton size="sm" text="keep shopping 🛒" variant="transparent" onClick={() => setIsCartOpen(false)} />
+        Guest cart <MyButton size="sm" text="keep shopping 🛒" variant="transparent" onClick={() => setIsCartOpen(false)} />
       </h2>
 
       {cart.length === 0 ? (
