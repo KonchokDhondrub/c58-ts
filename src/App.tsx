@@ -1,9 +1,10 @@
 import { HashRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
 
-import Layout from "./components/layout/Layout";
 import { navLinks, navHW, navLessons } from "./reoutesConfig.tsx";
 import { CartProvider } from "./components/cartContext/CartContext.tsx";
+
+import Layout from "./components/layout/Layout";
+import "./App.css";
 
 function App() {
   return (

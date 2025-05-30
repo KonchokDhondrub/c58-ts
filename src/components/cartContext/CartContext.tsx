@@ -8,15 +8,15 @@ export interface ICartItem {
   quantity: number;
 }
 
-// типизация контекста в корзине
+
 interface ICartContextType {
-  // корзина
+
   cart: ICartItem[];
-  // добавление элемента
+
   addToCart: (product: ICartItem) => void;
-  // удаление элемента
+
   removeFromCart: (id: number) => void;
-  // очистка корзины
+
   clearCart: () => void;
   updateQuantity: (id: number, quantity: number) => void;
 }
@@ -26,10 +26,10 @@ export const CartContext = createContext<ICartContextType | undefined>(undefined
 
 // * 2. обертка для компонентов нашего приложения дающая доступ к данным контекста
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
-  // переменная состояния для контекста
+
   const [cart, setCart] = useState<ICartItem[]>([]);
 
-  // добавление продукта в корзину
+
   const addToCart = (product: ICartItem) => {
     setCart((prevCart) => {
       const productExist = prevCart.find((item) => item.id === product.id);
@@ -40,12 +40,10 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     });
   };
 
-  // удаление продуктов из корзины
   const removeFromCart = (id: number) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== id));
   };
 
-  // очистка продуктов из корзины
   const clearCart = () => {
     setCart([]);
   };

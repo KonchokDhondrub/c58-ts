@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import type { JSX } from "react";
+
+import { useCart } from "../../cartContext/CartContext";
+
 import MyButton from "../../myButton/MyButton";
 import styles from "./StoreCard.module.css";
-import { useCart } from "../../cartContext/CartContext";
 
 interface IProductCardProps {
   id: number;
@@ -18,7 +20,6 @@ export default function StoreCard({ id, title, price, thumbnail }: IProductCardP
     <div className={styles.mainContainer}>
       <Link to={String(id)}>
         <div className={styles.shopContainerCard}>
-          {/* <h4>{title.length > 30 ? title.slice(0, title.slice(0, 30).lastIndexOf(" ")) + "..." : title}</h4> */}
           <h4>{title.length > 23 ? title.slice(0, 20) + "..." : title}</h4>
           <p>
             Price: $<b>{price}</b>

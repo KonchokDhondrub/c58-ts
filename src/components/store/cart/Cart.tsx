@@ -14,25 +14,22 @@ export const getTotalPrice = (cart: ICartItem[]) => {
 };
 
 export default function Cart({ setIsCartOpen }: CartProps): JSX.Element {
-  const { cart, addToCart, removeFromCart, clearCart, updateQuantity } = useCart();
+  const { cart, removeFromCart, clearCart, updateQuantity } = useCart();
 
   return (
     <div className={styles.container}>
       <h2>
-        Guest cart <MyButton size="sm" text="keep shoping 🛒" variant="transparent" onClick={() => setIsCartOpen(false)} />
+        Guest cart{" "}
+        <MyButton size="sm" text="keep shopping 🛒" variant="transparent" onClick={() => setIsCartOpen(false)} />
       </h2>
-      {/* <div className={styles.header}> */}
-      {/* <Link to="/lesson-15">
-          <MyButton type="button" text="back" />
-        </Link> */}
-      {/* </div> */}
+
       {cart.length === 0 ? (
         <p className={styles.empty}>Your cart is empty...</p>
       ) : (
         <>
           <div className={styles.cartContentContainer}>
             {cart.map((el) => (
-              <div className={styles.items}>
+              <div key={el.id} className={styles.items}>
                 <div className={styles.childActive}>{el.title}</div>
                 <div className={styles.chilNotdActive}>x{el.quantity}</div>
                 <div className={styles.totalPrice}>{(el.price * el.quantity).toFixed(2)}€</div>
@@ -51,6 +48,7 @@ export default function Cart({ setIsCartOpen }: CartProps): JSX.Element {
               </div>
             ))}
           </div>
+
           <div className={styles.totalPrice}>
             <h3>Total price: {getTotalPrice(cart)}€</h3>
             <MyButton text="order" />

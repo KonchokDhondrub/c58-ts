@@ -1,13 +1,15 @@
 import { useEffect, useState, type JSX } from "react";
-import type { IProducts } from "./types";
 import * as Yup from "yup";
 import { useFormik } from "formik";
+
+import { useStoreContext } from "./storeContext/StoreContext";
 
 import MyLoader from "../myLoader/MyLoader";
 import MyButton from "../myButton/MyButton";
 import StoreCard from "./storeCard/StoreCard";
 import Homework13 from "../../hw/hw_13/Homework13";
-import Cart, { getTotalPrice } from "./cart/Cart";
+import Cart from "./cart/Cart";
+
 import styles from "./Store.module.css";
 
 const schema = Yup.object().shape({
@@ -15,12 +17,12 @@ const schema = Yup.object().shape({
 });
 
 export default function Store(): JSX.Element {
-  const [allProducts, setAllProducts] = useState<IProducts[]>([]);
-  const [loader, setLoader] = useState<boolean>(false);
   const [limit, setLimit] = useState<number>(20);
   const [page, setPage] = useState<number>(0);
   const [isLoggedin, setIsLoggedin] = useState<boolean>(false);
   const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
+
+  const { products, loader, getProducts } = useStoreContext();
 
   const formik = useFormik({
     initialValues: {
@@ -34,41 +36,26 @@ export default function Store(): JSX.Element {
     },
   });
 
-  const getProducts = async (limit: number, skip = 0) => {
-    setLoader(true);
-    const res = await fetch(`https://dummyjson.com/products?limit=${limit}&skip=${skip}`);
-    const data = await res.json();
-    setAllProducts(data.products);
-    setLoader(false);
-    // console.log(data.products);
-    console.log("Page: " + page);
-  };
-
   useEffect(() => {
-    getProducts(limit);
-  }, []);
+    getProducts(limit, limit * page);
+  }, [limit, page]);
 
-  //* Page Selector
   const nextPage = () => {
     const newPage = page + 1;
     setPage(newPage);
     getProducts(limit, limit * newPage);
-    console.log("Next " + "Limit: " + limit + " Page: " + newPage);
   };
 
   const prevPage = () => {
     const newPage = page - 1;
     setPage(newPage);
     getProducts(limit, limit * newPage);
-    console.log("Prev " + "Limit: " + limit + " Page: " + newPage);
   };
 
   return (
     <div className={styles.container}>
-      {/* Cart */}
       <div className={isCartOpen ? styles.cartContainer : styles.hidden}>{isCartOpen && <Cart setIsCartOpen={setIsCartOpen} />}</div>
 
-      {/* Login form */}
       <div className={isLoggedin ? styles.fadeIn : styles.hidden}>
         {isLoggedin && (
           <div className={styles.loginRegistrationContainer}>
@@ -78,7 +65,6 @@ export default function Store(): JSX.Element {
       </div>
 
       <div className={styles.topRow}>
-        {/* Limit selector  */}
         <form onSubmit={formik.handleSubmit} className={styles.handleSubmit}>
           <label>
             Select quantity:
@@ -89,15 +75,12 @@ export default function Store(): JSX.Element {
         {formik.errors.limit && <div className={styles.alertBox}>{formik.errors.limit}</div>}
 
         <div>
-          {/* Pages buttons */}
           <div className={styles.prevNextBtn}>
             {page >= 1 && <div>Page: {page}</div>}
-            {page >= 1 && <MyButton size="sm" text="Prev" onClick={() => prevPage()} />}
-            {allProducts.length < limit ? <MyButton size="sm" text="Next" isDisabled={true} /> : <MyButton size="sm" text="Next" onClick={() => nextPage()} />}
+            {page >= 1 && <MyButton size="sm" text="Prev" onClick={prevPage} />}
+            {products.length < limit ? <MyButton size="sm" text="Next" isDisabled={true} /> : <MyButton size="sm" text="Next" onClick={nextPage} />}
           </div>
 
-          {/* Cart Button */}
-          {/* <p>{getTotalPrice(cart)}€</p> */}
           <MyButton
             text="🛒"
             variant="transparent"
@@ -107,7 +90,6 @@ export default function Store(): JSX.Element {
             }}
           />
 
-          {/* Login Button  */}
           <MyButton
             text="Login"
             variant="success"
@@ -118,11 +100,12 @@ export default function Store(): JSX.Element {
           />
         </div>
       </div>
+
       {loader ? (
         <MyLoader variant="3" />
       ) : (
         <div className={styles.shopContainer}>
-          {allProducts.map((p) => (
+          {products.map((p) => (
             <StoreCard key={p.id} id={p.id} title={p.title} price={p.price} thumbnail={p.thumbnail} />
           ))}
         </div>
