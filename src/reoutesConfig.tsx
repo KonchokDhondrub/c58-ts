@@ -54,8 +54,8 @@ export const navHW = [
   { path: "homework-08", title: "8: useEffect & Foxes!", element: <Homework08 /> },
   { path: "homework-12", title: "12: formik & Gender checker ", element: <Homework12 /> },
   { path: "homework-13", title: "13: Yup 🔐: LogIn & Register", element: <Homework13 /> },
-  { path: "lesson-14", title: "14: Dynamic Routing 🛒", element: <Lesson14 /> },
-  { path: "lesson-15", title: "17: Children Props 🙇‍♂️ 🛒", element: <Lesson15 /> },
+  { path: "lesson-14", title: "14: Dynamic Routing @ Store 🛒", element: <Lesson14 /> },
+  { path: "lesson-15", title: "17: Children Props 🙇‍♂️ @ Store 🛒", element: <Lesson15 /> },
 ];
 
 // Lessons array

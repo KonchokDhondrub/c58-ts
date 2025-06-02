@@ -1,4 +1,5 @@
 import { type Action, configureStore, type ThunkAction } from "@reduxjs/toolkit";
+import productSlice from "../features/productSlice";
 
 // * в store хранятся данные из всего react приложения
 // они изменяются с помощью функции reducer, в которую передается action
@@ -6,6 +7,7 @@ import { type Action, configureStore, type ThunkAction } from "@reduxjs/toolkit"
 export const store = configureStore({
   reducer: {
     // подключаем функции reducer для обработки данных из файлов slice
+    product: productSlice.reducer,
   },
 });
 
