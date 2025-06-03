@@ -13,11 +13,11 @@ interface IMyInputProps {
 }
 
 export default function MyInput({ formik, name, type = "text", placeholder, label, onChange }: IMyInputProps): JSX.Element {
+  const { errors } = formik;
+
   return (
     <>
-      <div>
-        <label>{label}</label>
-      </div>
+      <div>{errors[name] ? <label style={{ color: "red" }}>{errors[name] as string}</label> : label}</div>
       <input value={formik.values[name]} type={type} name={name} placeholder={placeholder} onChange={formik.handleChange}></input>
     </>
   );

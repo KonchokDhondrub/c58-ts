@@ -3,6 +3,10 @@
   margin: 20px 0;
 }
 
+.userName {
+  margin: 0;
+}
+
 .container .labelBtn {
   display: flex;
   flex-direction: row;
