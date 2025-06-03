@@ -75,4 +75,5 @@ export const navLessons = [
   { path: "lesson-14", title: "14: Dynamic Routing 🛒", element: <Lesson14 /> },
   { path: "lesson-15", title: "15: Store 🛒", element: <Lesson15 /> },
   { path: "lesson-17", title: "17: Children Props 🙇‍♂️", element: <Lesson17 /> },
+  { path: "lesson-14", title: "18: Redux Toolkit 🙇‍♂️", element: <Lesson14 /> },
 ];

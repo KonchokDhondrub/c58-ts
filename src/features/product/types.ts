@@ -1,4 +1,4 @@
-import type { IProducts } from "../components/products/types";
+import type { IProducts } from "../../components/products/types";
 
 export interface IProductState {
   products: IProducts[];

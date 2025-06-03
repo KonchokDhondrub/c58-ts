@@ -1,40 +1,55 @@
 import { useEffect, useState, type JSX } from "react";
+import { useFormik } from "formik";
 
 import ProductCard from "../productCard/ProductCard";
 import MyLoader from "../myLoader/MyLoader";
 import MyButton from "../myButton/MyButton";
-import { loadProducts } from "../../features/productAction";
+import { loadProducts, loadLimitProducts } from "../../features/product/productAction";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 
 import styles from "./Products.module.css";
+import MyInput from "../myInput/MyInput";
 
 export default function Products(): JSX.Element {
   const { products, isLoading, error } = useAppSelector((state) => state.product);
   const dispatch = useAppDispatch();
 
   const [limit, setLimit] = useState<number>(5);
-  // const [page, setPage] = useState<number>(0);
+  const [page, setPage] = useState<number>(0);
+
+  /// Formik
+  const formik = useFormik({
+    initialValues: {
+      limit: "",
+    } as { limit: string },
+    validateOnChange: false,
+    onSubmit: (values, { resetForm }) => {
+      console.log(values);
+      dispatch(loadLimitProducts(values.limit));
+      resetForm();
+    },
+  });
 
   useEffect(() => {
-    dispatch(loadProducts(limit)); // передаём в dispatch вызов нужного action
-  }, [limit]);
+    dispatch(loadProducts()); // передаём в dispatch вызов нужного action
+  }, []);
 
+  // Pages
   const totalPages = Math.ceil(products.length / limit);
 
   const nextPage = () => {
-    dispatch(loadProducts(limit));
-    const p2 = products.slice(limit / 2, 5);
-    // if (page < totalPages - 1) {
-    //   setPage((prev) => prev + 1);
-    // }
+    if (page < totalPages - 1) {
+      setPage((prev) => prev + 1);
+    }
   };
 
-  // const prevPage = () => {
-  //   if (page > 0) {
-  //     setPage((prev) => prev - 1);
-  //   }
-  // };
+  const prevPage = () => {
+    if (page > 0) {
+      setPage((prev) => prev - 1);
+    }
+  };
 
+  // Limit
   const handleLimitChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = Number(e.target.value);
     if (value >= 1 && value <= 20) {
@@ -43,11 +58,11 @@ export default function Products(): JSX.Element {
     }
   };
 
-  // const visibleProducts = products.slice(page * limit, (page + 1) * limit);
+  const visibleProducts = products.slice(page * limit, (page + 1) * limit);
 
-  // useEffect(() => {
-  //   console.log("Current page:", page);
-  // }, [page]);
+  useEffect(() => {
+    console.log("Current page:", page);
+  }, [page]);
 
   return (
     <div className={styles.container}>
@@ -56,11 +71,14 @@ export default function Products(): JSX.Element {
           Quantity of items per page (1–20): <input type="number" min="1" max="20" value={limit} onChange={handleLimitChange} className={styles.input} />
         </label>
 
+        {/* <form onSubmit={formik.handleSubmit}>
+            <MyInput name={'limit'} label={'🤔 What is your limit? 🛍️'} placeholder={'limit of products'} type={'text'} formik={formik} />
+            <MyButton variant="danger" size="sm" type="submit" text="load limit products" />
+          </form> */}
+
         <div>
-          {/* {page >= 1 && <MyButton size="sm" text="Prev" onClick={prevPage} />}
-          {page < products.length / limit - 1 ?  */}
-          <MyButton size="sm" text="Next" onClick={nextPage} />
-          {/* : <MyButton size="sm" text="Next" isDisabled={true} />} */}
+          {page >= 1 && <MyButton size="sm" text="Prev" onClick={prevPage} />}
+          {page < products.length / limit - 1 ? <MyButton size="sm" text="Next" onClick={nextPage} /> : <MyButton size="sm" text="Next" isDisabled={true} />}
         </div>
       </div>
 
@@ -68,7 +86,7 @@ export default function Products(): JSX.Element {
         <MyLoader variant="3" />
       ) : (
         <div className={styles.shopContainer}>
-          {products.map((p) => (
+          {visibleProducts.map((p) => (
             <ProductCard key={p.id} id={p.id} title={p.title} price={p.price} image={p.image} />
           ))}
           {error && <h2>⚠️ Error: {error} ⚠️</h2>}

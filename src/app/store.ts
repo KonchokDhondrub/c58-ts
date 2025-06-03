@@ -1,5 +1,5 @@
 import { type Action, configureStore, type ThunkAction } from "@reduxjs/toolkit";
-import productSlice from "../features/productSlice";
+import productSlice from "../features/product/productSlice";
 
 // * в store хранятся данные из всего react приложения
 // они изменяются с помощью функции reducer, в которую передается action

@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
+
+import { loadProducts, loadLimitProducts } from "./productAction";
 import type { IProductState } from "./types";
-import { loadProducts } from "./productAction";
 
 // создаем начальное состояние
 const initialState: IProductState = {
@@ -30,6 +31,20 @@ export const productSlice = createSlice({
       })
       // данные не получены
       .addCase(loadProducts.rejected, (state, action) => {
+        state.isLoading = false;
+        state.products = [];
+        state.error = action.payload as string;
+      })
+
+      // Limited
+      .addCase(loadLimitProducts.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(loadLimitProducts.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.products = action.payload;
+      })
+      .addCase(loadLimitProducts.rejected, (state, action) => {
         state.isLoading = false;
         state.products = [];
         state.error = action.payload as string;
