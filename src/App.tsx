@@ -6,7 +6,7 @@ import { CartProvider } from "./components/cartContext/CartContext.tsx";
 import Layout from "./components/layout/Layout";
 import "./App.css";
 import { Provider } from "react-redux";
-import { store } from "./app/store.ts";
+import { store, storeCounter } from "./app/store.ts";
 
 function App() {
   return (

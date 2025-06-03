@@ -75,9 +75,11 @@ export default function Products(): JSX.Element {
             <label>
               Quantity of items per page (1–20): <input type="number" min="1" max="20" value={limit} onChange={handleLimitChange} className={styles.input} />
             </label>
+
             <h2 className={styles.userName}>
               Hello {user.firstName} {user.lastName}!
             </h2>
+
             {/* 
             // Teacher version
             <form onSubmit={formik.handleSubmit}>

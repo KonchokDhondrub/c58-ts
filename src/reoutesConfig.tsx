@@ -1,7 +1,7 @@
 import HomePage from "./components/homePage/HomePage";
 import ProductPage from "./components/productPage/ProductPage";
 import StorePage from "./components/store/storePage/StorePage";
-import Cart from "./components/store/cart/Cart";
+import Counter from "./features/counter/Counter";
 
 import Homework01 from "./hw/hw_01/Homework01";
 import Homework02 from "./hw/hw_02/Homework02";
@@ -40,7 +40,7 @@ export const navLinks = [
   { path: "old-lessons", title: "Old Lessons Page", element: <ExternalPage url="https://konchokdhondrub.github.io/frontend/" /> },
   { path: "lesson-14/:id", title: "", element: <ProductPage /> },
   { path: "lesson-15/:id", title: "", element: <StorePage /> },
-  // { path: "lesson-15/cart", title: "Cart", element: <Cart /> },
+  { path: "counter/", title: "Counter", element: <Counter /> },
 ];
 
 // Homewok array
