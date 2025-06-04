@@ -24,23 +24,29 @@ export default function HomePage(/*{ homework, lessons }: IHomePageProps*/): JSX
       <div className={style.container}>
         <div className={style.box}>
           <h2>Lessons</h2>
-          {navLessons.slice().reverse().map((el) => (
-            <div key={el.path} className={style.containerGrid}>
-              <NavLink to={el.path}>
-                <section>{el.title ? el.title.replace(":", "" + "\u00A0".repeat(3)) : el.path}</section>
-              </NavLink>
-            </div>
-          ))}
+          {navLessons
+            .slice()
+            .reverse()
+            .map((el, index) => (
+              <div key={index} className={style.containerGrid}>
+                <NavLink to={el.path}>
+                  <section>{el.title ? el.title.replace(":", "" + "\u00A0".repeat(3)) : el.path}</section>
+                </NavLink>
+              </div>
+            ))}
         </div>
         <div className={style.box}>
           <h2>Homework</h2>
-          {navHW.slice().reverse().map((el) => (
-            <div key={el.path} className={style.containerGrid}>
-              <NavLink to={el.path}>
-                <section>{el.title ? el.title.replace(":", "" + "\u00A0".repeat(3)) : el.path}</section>
-              </NavLink>
-            </div>
-          ))}
+          {navHW
+            .slice()
+            .reverse()
+            .map((el, index) => (
+              <div key={index} className={style.containerGrid}>
+                <NavLink to={el.path}>
+                  <section>{el.title ? el.title.replace(":", "" + "\u00A0".repeat(3)) : el.path}</section>
+                </NavLink>
+              </div>
+            ))}
         </div>
       </div>
     </>

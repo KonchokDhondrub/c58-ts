@@ -15,7 +15,7 @@ interface IMyButtonProps {
 
 // onClick = () => console.log(`onClick: text: ${text}, type: ${type}, variant: ${variant}, size: ${size} disabled: ${isDisabled}`)
 
-function MyButton({ id, type = "button", text = "click me!", className, isDisabled = false, variant = "primary", size = "md", onClick }: IMyButtonProps): JSX.Element {
+function MyButton({ id, type = "submit", text = "click me!", className, isDisabled = false, variant = "primary", size = "md", onClick }: IMyButtonProps): JSX.Element {
   return (
     <>
       <button

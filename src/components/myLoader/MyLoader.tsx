@@ -8,7 +8,7 @@ interface IMyLoader {
   variant?: "default" | "2" | "3";
 }
 
-export default function MyLoader({ text, position = "center", variant = "default" }: IMyLoader): JSX.Element {
+export default function MyLoader({ text, position = "center", variant = "3" }: IMyLoader): JSX.Element {
   return (
     <div
       className={cn({

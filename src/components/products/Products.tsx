@@ -4,12 +4,12 @@ import { useFormik } from "formik";
 import ProductCard from "../productCard/ProductCard";
 import MyLoader from "../myLoader/MyLoader";
 import MyButton from "../myButton/MyButton";
+import Login from "../login/Login";
+import MyInput from "../myInput/MyInput";
 import { loadProducts, loadLimitProducts } from "../../features/product/productAction";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 
 import styles from "./Products.module.css";
-import MyInput from "../myInput/MyInput";
-import Login from "../login/Login";
 
 export default function Products(): JSX.Element {
   const { products, isLoading, error } = useAppSelector((state) => state.product);
@@ -25,7 +25,7 @@ export default function Products(): JSX.Element {
     } as { limit: string },
     validateOnChange: false,
     onSubmit: (values, { resetForm }) => {
-      console.log(values);
+      // console.log(values);
       dispatch(loadLimitProducts(values.limit));
       resetForm();
     },
@@ -63,11 +63,17 @@ export default function Products(): JSX.Element {
 
   // Получаем user-а
   const { user } = useAppSelector((store) => store.user);
-  console.log(user);
+  // console.log(user);
 
   return (
     <div className={styles.container}>
-      {user.id ? "" : <Login />}
+      {user.id ? (
+        "" // <MyLoader variant="3" />
+      ) : (
+        <div className={styles.loginContainer}>
+          <Login />
+        </div>
+      )}
 
       {user.id ? (
         <>

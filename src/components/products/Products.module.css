@@ -3,6 +3,12 @@
   margin: 20px 0;
 }
 
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 .userName {
   margin: 0;
 }
