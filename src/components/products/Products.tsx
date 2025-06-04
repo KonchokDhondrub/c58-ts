@@ -1,12 +1,12 @@
 import { useEffect, useState, type JSX } from "react";
-import { useFormik } from "formik";
+// import { useFormik } from "formik";
 
 import ProductCard from "../productCard/ProductCard";
 import MyLoader from "../myLoader/MyLoader";
 import MyButton from "../myButton/MyButton";
 import Login from "../login/Login";
-import MyInput from "../myInput/MyInput";
-import { loadProducts, loadLimitProducts } from "../../features/product/productAction";
+// import MyInput from "../myInput/MyInput";
+import { loadProducts } from "../../features/product/productAction";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 
 import styles from "./Products.module.css";
@@ -19,17 +19,17 @@ export default function Products(): JSX.Element {
   const [page, setPage] = useState<number>(0);
 
   /// Formik
-  const formik = useFormik({
-    initialValues: {
-      limit: "",
-    } as { limit: string },
-    validateOnChange: false,
-    onSubmit: (values, { resetForm }) => {
-      // console.log(values);
-      dispatch(loadLimitProducts(values.limit));
-      resetForm();
-    },
-  });
+  // const formik = useFormik({
+  //   initialValues: {
+  //     limit: "",
+  //   } as { limit: string },
+  //   validateOnChange: false,
+  //   onSubmit: (values, { resetForm }) => {
+  //     // console.log(values);
+  //     dispatch(loadLimitProducts(values.limit));
+  //     resetForm();
+  //   },
+  // });
 
   useEffect(() => {
     dispatch(loadProducts()); // передаём в dispatch вызов нужного action
